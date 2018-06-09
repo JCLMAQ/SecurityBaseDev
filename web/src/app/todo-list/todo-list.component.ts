@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 import { ITodo, IUser } from "../shared/interfaces";

@@ -1,0 +1,18 @@
+<div>
+  <mat-toolbar color="primary">
+    <h1>Examples</h1>
+    <span class="app-toolbar-filler"></span>
+    <button mat-button routerLink="" >Home</button>
+    <button mat-button routerLink="todos" >Todos</button>
+    <button mat-button routerLink="users" >Users</button>
+    <button mat-button *ngIf="wakanda.user | async" (click)="logout()" >LogOut</button>
+    <span *ngIf="wakanda.user | async; else notLogin" (click)= "logout()">
+      {{wakanda.user.name}} 
+      </span>
+      <ng-template #notLogin>
+        <button mat-button routerLink="login" >Login</button>
+      </ng-template>
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
+</div>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {
-  MatMenuModule,
-		  MatSidenavModule, 
+  	MatMenuModule,
+	MatSidenavModule, 
 		  MatToolbarModule, 
 		   	  
 		  MatListModule,
@@ -42,6 +42,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const MODULES = [
+	MatMenuModule,
   MatSidenavModule, 
 		  MatToolbarModule, 
 		   	  

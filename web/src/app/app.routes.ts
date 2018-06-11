@@ -11,28 +11,31 @@ import { TodoListComponent } from "./todo-list/todo-list.component";
 import { UsersComponent } from "./users/users.component";
 
 const APP_ROUTES: Routes = [{
-  path: "",
+  path: '',
   component: HomeComponent
 },{
-  path: "login",
+  path: 'home',
+  component: HomeComponent
+},{
+  path: 'login',
   component: LoginComponent
 }, {
-  path: "todos",
+  path: 'todos',
   component: TodoListComponent
 }, {
-  path: "todos/:id",
+  path: 'todos/:id',
   component: TodoDetailsComponent,
   data: {
     editable: true
   }
 }, {
-  path: "todos/:id/view",
+  path: 'todos/:id/view',
   component: TodoDetailsComponent
 }, {
-  path: "users",
+  path: 'users',
   component: UsersComponent
 },{
-  path: "register",
+  path: 'register',
   component: RegisterComponent
 }];
 

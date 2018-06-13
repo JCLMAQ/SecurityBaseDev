@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WakandaClient } from "wakanda-client/browser/no-promise";
+import { WakandaClient } from 'wakanda-client/browser/no-promise';
 
 const client = new WakandaClient({});
 
@@ -7,7 +7,7 @@ export interface ICurrentUser {
   email: string;
   fullName: string;
   ID: string;
-};
+}
 
 @Injectable()
 export class WakandaService {
@@ -17,13 +17,13 @@ export class WakandaService {
   constructor() {  }
 
  get catalog(): Promise<any>{
-    if(!this.ds){
+    if(!this.ds) {
       this.ds = client.getCatalog();
     }
     return this.ds;
   }
 
-  get directory(){
+  get directory() {
     return client.directory;
   }
 
@@ -48,29 +48,23 @@ export class WakandaService {
     } catch (e) {
       isOK = false;
     }
-
     if (isOK) {
       this.refreshUser();
     }
-
     return isOK;
   }
 
   async logout(): Promise<boolean> {
     let isOK: boolean = false;
-
     try {
       isOK = await client.directory.logout();
     } catch (e) {
       isOK = false;
     }
-
     if (isOK) {
       this.refreshUser();
     }
-
     return isOK;
   }
-  
 
 }

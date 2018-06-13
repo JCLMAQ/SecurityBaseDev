@@ -12,12 +12,13 @@
         <input name="password" required matInput [(ngModel)]="password" type="password" placeholder="Password">
       </mat-form-field>
     
-      <button mat-button type="submit" (click)="login(username, password)" [disabled]="form.invalid">
+      <button mat-raised-button color="primary" type="submit" (click)="login(username, password)" [disabled]="form.invalid">
         Login
       </button>
-      <button mat-button type="submit" (click)="register()">
+      <button mat-raised-button color="primary" type="submit" (click)="register()">
         Register
       </button>
+      <button mat-button type="submit" (click)="backhome()" ><mat-icon>cancel_presentation</mat-icon></button>
     </form>
   </mat-card-content>
   

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WakandaService } from '../shared/wakanda.service';
+import {AuthenticationService} from '../shared/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private wakandaService: WakandaService,
+    private authenticationService: AuthenticationService,
     private router: Router,
   ) { }
 
@@ -22,16 +24,18 @@ export class LoginComponent implements OnInit {
   }
 
   async login(username: string, password: string) {
-    const isOK = await this.wakandaService.login(username, password);
+    const isOK = await this.authenticationService.login(username, password);
+ //   const isOK = await this.wakandaService.login(username, password);
     if (isOK) {
       this.router.navigate(['/']);
     } else {
       alert('Invalid username or password');
     }
   }
-
   register(){
     this.router.navigate(['register']);
   }
-  
+  backhome() {
+    this.router.navigate(['home']);
+  }
 }

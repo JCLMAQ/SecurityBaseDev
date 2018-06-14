@@ -15,9 +15,11 @@
       <button mat-raised-button color="primary" type="submit" (click)="login(username, password)" [disabled]="form.invalid">
         Login
       </button>
+      <mat-divider></mat-divider>
       <button mat-raised-button color="primary" type="submit" (click)="register()">
         Register
       </button>
+      <mat-divider></mat-divider>
       <button mat-button type="submit" (click)="backhome()" ><mat-icon>cancel_presentation</mat-icon></button>
     </form>
   </mat-card-content>

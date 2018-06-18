@@ -16,8 +16,8 @@ export class WakandaService {
 
   constructor() {  }
 
- get catalog(): Promise<any>{
-    if(!this.ds) {
+  get catalog(): Promise<any> {
+    if (!this.ds) {
       this.ds = client.getCatalog();
     }
     return this.ds;
@@ -41,30 +41,30 @@ export class WakandaService {
       .catch(() => { });
   }
 
-  async login(username: string, password: string): Promise<boolean> {
-    let isOK: boolean = false;
-    try {
-      isOK = await client.directory.login(username, password);
-    } catch (e) {
-      isOK = false;
-    }
-    if (isOK) {
-      this.refreshUser();
-    }
-    return isOK;
-  }
+  // async login(username: string, password: string): Promise<boolean> {
+  //   let isOK = false;
+  //   try {
+  //     isOK = await client.directory.login(username, password);
+  //   } catch (e) {
+  //     isOK = false;
+  //   }
+  //   if (isOK) {
+  //     this.refreshUser();
+  //   }
+  //   return isOK;
+  // }
 
-  async logout(): Promise<boolean> {
-    let isOK: boolean = false;
-    try {
-      isOK = await client.directory.logout();
-    } catch (e) {
-      isOK = false;
-    }
-    if (isOK) {
-      this.refreshUser();
-    }
-    return isOK;
-  }
+  // async logout(): Promise<boolean> {
+  //   let isOK = false;
+  //   try {
+  //     isOK = await client.directory.logout();
+  //   } catch (e) {
+  //     isOK = false;
+  //   }
+  //   if (isOK) {
+  //     this.refreshUser();
+  //   }
+  //   return isOK;
+  // }
 
 }

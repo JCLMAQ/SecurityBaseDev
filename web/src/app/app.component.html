@@ -17,7 +17,8 @@
 	  <span>Secrurity Base Developement</span>
 	
 	  <span class="app-toolbar-filler"></span>
-	  <span>{{ (sessionInfo | async)?.user.fullName }}</span>
+	 <!-- <span>{{ (sessionInfo | async)?.user.fullName }}</span> -->
+		
 	  <button mat-icon-button *ngIf="wakanda.user | async" (click)="logout()" >
 				<mat-icon>lock_open</mat-icon>
 			</button>

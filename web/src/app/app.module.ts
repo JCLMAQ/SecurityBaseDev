@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
 
@@ -26,7 +25,6 @@ import { TodoService } from './shared/todo.service';
 import {UserService} from './shared/user.service';
 import { RegisterService} from './register/register.service';
 import {AuthenticationService} from './shared/authentication.service';
-
 
 
 @NgModule({

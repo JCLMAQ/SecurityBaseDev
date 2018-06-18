@@ -50,10 +50,13 @@ export class AuthenticationService {
     }
     return isOK;
   }
-  public refreshUser() {
-    this.current = client.directory
-      .getCurrentUser()
-      .catch(() => { });
+
+  async user(): Promise<ICurrentUser> {
+    await this.wakanda.user();
+  }
+
+  async refreshUser() {
+    await this.wakanda.refreshUser();
   }
 
   // logout() {

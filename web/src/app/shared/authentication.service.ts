@@ -18,11 +18,11 @@ export interface ICurrentUser {
 
 @Injectable()
 export class AuthenticationService {
-  private currentUser: any;
+  private currentUser:  Promise<ICurrentUser>;
   private current: Promise<ICurrentUser>;
 
 
-  constructor(private wakanda: WakandaService) {}
+  constructor(private wakandaService: WakandaService) {}
 
 
   async login(username: string, password: string): Promise<boolean> {
@@ -52,11 +52,11 @@ export class AuthenticationService {
   }
 
  async user(): Promise<ICurrentUser> {
-   return this.wakanda.user;
+   return this.wakandaService.user;
   }
 
   async refreshUser() {
-    await this.wakanda.refreshUser();
+    await this.wakandaService.refreshUser();
   }
 
   // logout() {
@@ -81,7 +81,7 @@ export class AuthenticationService {
 
   checkCredentials() {
     return new Promise((resolve, reject) => {
-      this.wakanda.directory.getCurrentUser().then((user) => {
+      this.wakandaService.directory.getCurrentUser().then((user) => {
         this.currentUser = user;
         resolve(user);
       }).catch((error) => {

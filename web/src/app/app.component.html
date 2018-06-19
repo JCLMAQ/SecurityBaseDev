@@ -19,11 +19,11 @@
 	 
 	 <!--  --><span>{{ (sessionInfo | async)?.user.fullName }}</span> 
 		
-	  <button mat-icon-button *ngIf="wakanda.user | async" (click)="logout()" >
+	  <button mat-icon-button *ngIf="authenticationService.user | async" (click)="logout()" >
 				<mat-icon>lock_open</mat-icon> log out
 			</button>
-      <span *ngIf="wakanda.user | async; else notLogin" (click)= "logout()">
-        logged as {{wakanda.user.fullName}} 
+      <span *ngIf="authenticationService.user | async; else notLogin" (click)= "logout()">
+        logged as {{currentUser.fullName}} 
       </span>
       <ng-template #notLogin>
         <button mat-icon-button routerLink="login" >

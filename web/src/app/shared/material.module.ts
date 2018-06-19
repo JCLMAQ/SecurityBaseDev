@@ -41,6 +41,7 @@ import {
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 const MODULES = [
 	MatMenuModule,
   MatSidenavModule, 
@@ -83,5 +84,6 @@ const MODULES = [
 @NgModule({
   imports: MODULES,
   exports: MODULES,
+  declarations: [],
 })
 export class MaterialModule { }

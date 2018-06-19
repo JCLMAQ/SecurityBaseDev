@@ -15,15 +15,15 @@
 		</button>
 		
 	  <span>Secrurity Base Developement</span>
-	
-	  <span class="app-toolbar-filler"></span>
-	 <!-- <span>{{ (sessionInfo | async)?.user.fullName }}</span> -->
+		<span class="app-toolbar-filler"></span>
+	 
+	 <!--  --><span>{{ (sessionInfo | async)?.user.fullName }}</span> 
 		
 	  <button mat-icon-button *ngIf="wakanda.user | async" (click)="logout()" >
 				<mat-icon>lock_open</mat-icon> log out
 			</button>
       <span *ngIf="wakanda.user | async; else notLogin" (click)= "logout()">
-        {{wakanda.user.name}} 
+        logged as {{wakanda.user.fullName}} 
       </span>
       <ng-template #notLogin>
         <button mat-icon-button routerLink="login" >

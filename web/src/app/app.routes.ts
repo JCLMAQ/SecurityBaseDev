@@ -13,10 +13,10 @@ import { UsersComponent } from './users/users.component';
 const APP_ROUTES: Routes = [{
   path: '',
   component: HomeComponent
-},{
+}, {
   path: 'home',
   component: HomeComponent
-},{
+}, {
   path: 'login',
   component: LoginComponent
 }, {
@@ -34,7 +34,7 @@ const APP_ROUTES: Routes = [{
 }, {
   path: 'users',
   component: UsersComponent
-},{
+}, {
   path: 'register',
   component: RegisterComponent
 }];

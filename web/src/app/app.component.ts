@@ -19,6 +19,7 @@ export class AppComponent {
 
   async logout() {
     await this.authenticationService.logout();
-    this.router.navigate(['/login']);
+ // this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 }

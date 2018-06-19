@@ -51,8 +51,8 @@ export class AuthenticationService {
     return isOK;
   }
 
-  async user(): Promise<ICurrentUser> {
-    await this.wakanda.user();
+ async user(): Promise<ICurrentUser> {
+   return this.wakanda.user;
   }
 
   async refreshUser() {

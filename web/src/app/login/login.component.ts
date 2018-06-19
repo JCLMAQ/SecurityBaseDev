@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     if (isOK) {
       this.router.navigate(['/']);
     } else {
-      alert('Invalid username or password');
+      alert('email ou mot de passe invalide');
     }
   }
   register() {

@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
+import {HttpClientModule} from '@angular/common/http';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import { APP_ROUTING, APP_ROUTING_PROVIDERS } from './app.routes';
 
@@ -18,6 +22,7 @@ import {RegisterComponent} from './register/register.component';
 import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 import { SignupComponent } from './signup/signup.component';
+import {CarouselComponent} from './shared/carousel/carousel.component';
 
 
 import { WakandaService } from './shared/wakanda.service';
@@ -38,15 +43,17 @@ import {AuthenticationService} from './shared/authentication.service';
     LoginComponent,
     RegisterComponent,
     UsersComponent,
-    SignupComponent
+    SignupComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
+    NgbModule.forRoot(),
     APP_ROUTING
   ],
   entryComponents: [ConfirmComponent],

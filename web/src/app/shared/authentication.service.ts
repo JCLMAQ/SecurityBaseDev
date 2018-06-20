@@ -51,8 +51,16 @@ export class AuthenticationService {
     return isOK;
   }
 
- async user(): Promise<ICurrentUser> {
-   return this.wakandaService.user;
+//  async user(): Promise<ICurrentUser> {
+//    return this.wakandaService.user;
+//   }
+
+  get user(): Promise<ICurrentUser> {
+    if (!this.current) {
+      this.refreshUser();
+    }
+
+    return this.current;
   }
 
   async refreshUser() {

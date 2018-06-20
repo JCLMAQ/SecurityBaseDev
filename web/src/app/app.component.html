@@ -17,17 +17,17 @@
 	  <span>Secrurity Base Developement</span>
 		<span class="app-toolbar-filler"></span>
 	 
-	 <!--  --><span>{{ (sessionInfo | async)?.user.fullName }}</span> 
+	 <!--  <span>{{ (sessionInfo | async)?.user.fullName }}</span> -->
 		
-	  <button mat-icon-button *ngIf="authenticationService.user | async" (click)="logout()" >
-				<mat-icon>lock_open</mat-icon> log out
+	  <button mat-icon-button *ngIf="wakandaService.user | async" (click)="logout()" >
+				<mat-icon>lock_open</mat-icon>
 			</button>
-      <span *ngIf="authenticationService.user | async; else notLogin" (click)= "logout()">
+      <span *ngIf="wakandaService.user | async; else notLogin" (click)= "logout()">
         logged as {{currentUser.fullName}} 
       </span>
       <ng-template #notLogin>
         <button mat-icon-button routerLink="login" >
-					<mat-icon>lock</mat-icon> log in
+					<mat-icon>lock</mat-icon>
 				</button>	
       </ng-template>
 

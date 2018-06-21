@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit() {
-    this.authenticationService.getCurrentUser().then(user => {
+    this.authenticationService.userCurrent().then(user => {
       this.currentUser = user;
     }).catch((errorMessage) => {
       console.log(errorMessage);

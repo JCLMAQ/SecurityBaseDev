@@ -12,7 +12,7 @@ export interface ICurrentUser {
 @Injectable()
 export class WakandaService {
   private ds: Promise<any>;
-  private current: Promise<ICurrentUser>;
+  private currentUser: Promise<ICurrentUser>;
 
   constructor() {  }
 
@@ -27,44 +27,63 @@ export class WakandaService {
     return client.directory;
   }
 
+  // get user(): Promise<ICurrentUser> {
+  //   if (!this.currentUser) {
+  //     this.refreshUser();
+  //   }
+
+  //   return this.currentUser;
+  // }
+
   get user(): Promise<ICurrentUser> {
-    if (!this.current) {
+    if (!this.currentUser) {
       this.refreshUser();
     }
 
-    return this.current;
+    return this.currentUser;
   }
 
-  public refreshUser() {
-    this.current = client.directory
+  refreshUser() {
+    this.currentUser = client.directory
       .getCurrentUser()
       .catch(() => { });
   }
 
-  // async login(username: string, password: string): Promise<boolean> {
-  //   let isOK = false;
-  //   try {
-  //     isOK = await client.directory.login(username, password);
-  //   } catch (e) {
-  //     isOK = false;
-  //   }
-  //   if (isOK) {
-  //     this.refreshUser();
-  //   }
-  //   return isOK;
-  // }
+  async login(username: string, password: string): Promise<boolean> {
+    let isOK = false;
+    try {
+      isOK = await client.directory.login(username, password);
+    } catch (e) {
+      isOK = false;
+    }
+    if (isOK) {
+      this.refreshUser();
+    }
+    return isOK;
+  }
 
-  // async logout(): Promise<boolean> {
-  //   let isOK = false;
-  //   try {
-  //     isOK = await client.directory.logout();
-  //   } catch (e) {
-  //     isOK = false;
-  //   }
-  //   if (isOK) {
-  //     this.refreshUser();
-  //   }
-  //   return isOK;
-  // }
+  async logout(): Promise<boolean> {
+    let isOK = false;
+    try {
+      isOK = await client.directory.logout();
+    } catch (e) {
+      isOK = false;
+    }
+    if (isOK) {
+      this.refreshUser();
+    }
+    return isOK;
+  }
+
+  checkCredentials() {
+    return new Promise((resolve, reject) => {
+      client.directory.getCurrentUser().then((user) => {
+        this.currentUser = user;
+        resolve(user);
+      }).catch((error) => {
+        reject(error.message);
+      });
+    });
+  }
 
 }

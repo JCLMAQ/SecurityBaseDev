@@ -15,12 +15,12 @@ export interface ICurrentUser {
 })
 export class HomeComponent implements OnInit {
 
-  currentUser: any;
+  // currentUser: any;
 
   constructor( private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
-    this.currentUser = this.authenticationService.checkCredentials();
+   // this.currentUser = this.authenticationService.checkCredentials();
   }
 
 }

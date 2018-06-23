@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { WakandaService } from './wakanda.service';
-// import { WakandaClient } from 'wakanda-client/browser/no-promise';
-
-// const client = new WakandaClient({});
 
 export class User {
   constructor(
@@ -19,7 +16,7 @@ export interface ICurrentUser {
 @Injectable()
 export class AuthenticationService {
   private currentUser:  ICurrentUser;
-  private current: Promise<ICurrentUser>;
+ // private current: Promise<ICurrentUser>;
 
 
   constructor(private wakandaService: WakandaService) {}
@@ -41,50 +38,21 @@ async logout() {
       }
       return isOK;
 }
-  // async login(username: string, password: string): Promise<boolean> {
-  //   let isOK = false;
-  //   try {
-  //     isOK = await client.directory.login(username, password);
-  //   } catch (e) {
-  //     isOK = false;
-  //   }
-  //   if (isOK) {
-  //     this.refreshUser();
-  //   }
-  //   return isOK;
-  // }
 
-  // async logout(): Promise<boolean> {
-  //   let isOK = false;
-  //   try {
-  //     isOK = await client.directory.logout();
-  //   } catch (e) {
-  //     isOK = false;
-  //   }
-  //   if (isOK) {
-  //     this.refreshUser();
-  //   }
-  //   return isOK;
-  // }
+ /*  async current() {
+    let user: ICurrentUser ;
+      user = await this.wakandaService.user;
 
-//  async user(): Promise<ICurrentUser> {
-//    return this.wakandaService.user;
-//   }
+    return user;
 
-  // get user(): Promise<ICurrentUser> {
-  //   if (!this.current) {
-  //     this.refreshUser();
-  //   }
-
-  //   return this.current;
-  // }
+  } */
 
   async refreshUser() {
     await this.wakandaService.refreshUser();
   }
 
   async checkCredentials() {
-   await this.wakandaService.checkCredentials();
+    await this.wakandaService.checkCredentials();
   }
 
   async userCurrent() {

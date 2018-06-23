@@ -27,19 +27,10 @@ export class WakandaService {
     return client.directory;
   }
 
-  // get user(): Promise<ICurrentUser> {
-  //   if (!this.currentUser) {
-  //     this.refreshUser();
-  //   }
-
-  //   return this.currentUser;
-  // }
-
   get user(): Promise<ICurrentUser> {
     if (!this.currentUser) {
       this.refreshUser();
     }
-
     return this.currentUser;
   }
 

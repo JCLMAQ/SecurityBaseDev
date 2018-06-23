@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,9 +27,9 @@ import {CarouselComponent} from './shared/carousel/carousel.component';
 
 import { WakandaService } from './shared/wakanda.service';
 import { TodoService } from './shared/todo.service';
-import {UserService} from './shared/user.service';
+import { UserService } from './shared/user.service';
 import { RegisterService} from './register/register.service';
-import {AuthenticationService} from './shared/authentication.service';
+import { AuthenticationService } from './shared/authentication.service';
 
 
 @NgModule({

@@ -10,7 +10,7 @@ export class RegisterService {
   }
 
   register(body): Promise<any> {
-    debugger;
+
     return new Promise((resolve, reject) => {
      this.wakandaService.catalog.then(ds => {
         ds.User.addUser(body).then(res => {

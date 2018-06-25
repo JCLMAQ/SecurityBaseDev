@@ -16,7 +16,7 @@ export interface ICurrentUser {
 @Injectable()
 export class AuthenticationService {
   private currentUser:  ICurrentUser;
- // private current: Promise<ICurrentUser>;
+// private current: Promise<ICurrentUser>;
 
 
   constructor(private wakandaService: WakandaService) {}
@@ -39,13 +39,15 @@ async logout() {
       return isOK;
 }
 
- /*  async current() {
+  async current () {
     let user: ICurrentUser ;
       user = await this.wakandaService.user;
-
     return user;
+  }
 
-  } */
+  // async userCurrent() {
+  //   this.currentUser = await this.wakandaService.user;
+  // }
 
   async refreshUser() {
     await this.wakandaService.refreshUser();
@@ -54,23 +56,5 @@ async logout() {
   async checkCredentials() {
     await this.wakandaService.checkCredentials();
   }
-
-  async userCurrent() {
-    this.currentUser = await this.wakandaService.user;
-  }
-
-  // getCurrentUser() {
-  //   return new Promise((resolve, reject) => {
-  //     if (this.currentUser) {
-  //       resolve(this.currentUser);
-  //     } else {
-  //       this.checkCredentials().then((user) => {
-  //         resolve(user);
-  //       }).catch((error) => {
-  //         reject(error.message);
-  //       });
-  //     }
-  //   });
-  // }
 
 }

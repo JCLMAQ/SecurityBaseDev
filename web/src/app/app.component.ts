@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit() {
-    this.authenticationService.userCurrent().then(user => {
+    this.authenticationService.current().then(user => {
       this.currentUser = user;
     }).catch((errorMessage) => {
       console.log(errorMessage);
@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
   }
   async logout() {
     await this.authenticationService.logout();
- // this.router.navigate(['/login']);
     this.router.navigate(['']);
   }
 }

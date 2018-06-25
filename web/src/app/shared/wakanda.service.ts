@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { WakandaClient } from 'wakanda-client/browser/no-promise';
 
-const client = new WakandaClient({});
+const _client = new WakandaClient({});
 
 export interface ICurrentUser {
   email: string;
@@ -18,13 +18,13 @@ export class WakandaService {
 
   get catalog(): Promise<any> {
     if (!this.ds) {
-      this.ds = client.getCatalog();
+      this.ds = _client.getCatalog();
     }
     return this.ds;
   }
 
   get directory() {
-    return client.directory;
+    return _client.directory;
   }
 
   get user(): Promise<ICurrentUser> {
@@ -35,7 +35,7 @@ export class WakandaService {
   }
 
   refreshUser() {
-    this.currentUser = client.directory
+    this.currentUser = _client.directory
       .getCurrentUser()
       .catch(() => { });
   }
@@ -43,7 +43,7 @@ export class WakandaService {
   async login(username: string, password: string): Promise<boolean> {
     let isOK = false;
     try {
-      isOK = await client.directory.login(username, password);
+      isOK = await _client.directory.login(username, password);
     } catch (e) {
       isOK = false;
     }
@@ -56,7 +56,7 @@ export class WakandaService {
   async logout(): Promise<boolean> {
     let isOK = false;
     try {
-      isOK = await client.directory.logout();
+      isOK = await _client.directory.logout();
     } catch (e) {
       isOK = false;
     }
@@ -68,7 +68,7 @@ export class WakandaService {
 
   checkCredentials() {
     return new Promise((resolve, reject) => {
-      client.directory.getCurrentUser().then((user) => {
+      _client.directory.getCurrentUser().then((user) => {
         this.currentUser = user;
         resolve(user);
       }).catch((error) => {

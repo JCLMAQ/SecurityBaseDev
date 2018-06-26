@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { WakandaService } from '../wakanda.service';
 
 @Injectable()
@@ -13,7 +12,7 @@ export class IsAuthenticatedGuard implements CanActivate {
   async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise<boolean> {
-    let result: boolean = false;
+    let result = false;
 
     try {
       const user = await this.wakandaService.user;

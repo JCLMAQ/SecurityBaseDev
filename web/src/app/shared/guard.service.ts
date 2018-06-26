@@ -5,17 +5,17 @@ import { AuthenticationService } from './authentication.service';
 
 // prevent non connected users to access the app
 @Injectable()
-export class AppGuard implements CanActivate {
+export class GuardService implements CanActivate {
 
   constructor(
-    private authService: AuthenticationService, 
+    private authenticationService: AuthenticationService,
     private router: Router
   ) {}
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return await this.authService.checkCredentials().then(result => {
+    return await this.authenticationService.checkCredentials().then(result => {
       if(result) {
-        if(state.url === "/login" || state.url === "/register") {
+        if(state.url === '/login' || state.url === '/register') {
           this.router.navigate(['/mainView']);
         } else {
           return true;
@@ -25,9 +25,9 @@ export class AppGuard implements CanActivate {
       }
     }).catch((errorMessage) => {
       let url = state.url;
-      if(url === "/login") {
+      if(url === '/login') {
         return true;
-      } else if(url === "/register") {
+      } else if(url === '/register') {
         return true;
       } else {
         this.router.navigate(['/login']);

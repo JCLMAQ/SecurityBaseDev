@@ -4,7 +4,8 @@ import { ModuleWithProviders, Provider } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component';
-import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
+// import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
+import {GuardService} from './shared/guard.service';
 
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -20,8 +21,11 @@ const APP_ROUTES: Routes = [{
   path: 'login',
   component: LoginComponent
 }, {
+  path: 'register',
+  component: RegisterComponent
+}, {
   path: 'todos',
-  component: TodoListComponent
+  component: TodoListComponent, canActivate: [GuardService]
 }, {
   path: 'todos/:id',
   component: TodoDetailsComponent,
@@ -34,10 +38,7 @@ const APP_ROUTES: Routes = [{
 }, {
   path: 'users',
   component: UsersComponent
-}, {
-  path: 'register',
-  component: RegisterComponent
-}];
+} ];
 
 export const APP_ROUTING_PROVIDERS: Provider[] = [];
 

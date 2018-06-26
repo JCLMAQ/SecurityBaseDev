@@ -21,33 +21,56 @@ export class AuthenticationService {
 
   constructor(private wakandaService: WakandaService) {}
 
-async login (username: string, password: string) {
+// async login (username: string, password: string) {
+//   let isOK = false;
+//   isOK = await this.wakandaService.login (username, password);
+//   if (isOK) {
+//         this.refreshUser();
+//       }
+//       return isOK;
+// }
+
+// async logout() {
+//   let isOK = false;
+//   isOK = await this.wakandaService.logout ();
+//   if (isOK) {
+//         this.refreshUser();
+//       }
+//       return isOK;
+// }
+
+async login(username: string, password: string): Promise<boolean> {
   let isOK = false;
-  isOK = await this.wakandaService.login (username, password);
+  try {
+    isOK = await this.wakandaService.directory.login(username, password);
+  } catch (e) {
+    isOK = false;
+  }
   if (isOK) {
-        this.refreshUser();
-      }
-      return isOK;
+    this.wakandaService.refreshUser();
+  }
+  return isOK;
 }
 
-async logout() {
+async logout(): Promise<boolean> {
   let isOK = false;
-  isOK = await this.wakandaService.logout ();
+  try {
+    isOK = await this.wakandaService.directory.logout();
+  } catch (e) {
+    isOK = false;
+  }
   if (isOK) {
-        this.refreshUser();
-      }
-      return isOK;
+    this.wakandaService.refreshUser();
+  }
+  return isOK;
 }
+
 
   async current () {
     let user: ICurrentUser ;
       user = await this.wakandaService.user;
     return user;
   }
-
-  // async userCurrent() {
-  //   this.currentUser = await this.wakandaService.user;
-  // }
 
   async refreshUser() {
     await this.wakandaService.refreshUser();

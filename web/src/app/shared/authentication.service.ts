@@ -15,29 +15,9 @@ export interface ICurrentUser {
 
 @Injectable()
 export class AuthenticationService {
-  private currentUser:  ICurrentUser;
-// private current: Promise<ICurrentUser>;
 
 
   constructor(private wakandaService: WakandaService) {}
-
-// async login (username: string, password: string) {
-//   let isOK = false;
-//   isOK = await this.wakandaService.login (username, password);
-//   if (isOK) {
-//         this.refreshUser();
-//       }
-//       return isOK;
-// }
-
-// async logout() {
-//   let isOK = false;
-//   isOK = await this.wakandaService.logout ();
-//   if (isOK) {
-//         this.refreshUser();
-//       }
-//       return isOK;
-// }
 
 async login(username: string, password: string): Promise<boolean> {
   let isOK = false;

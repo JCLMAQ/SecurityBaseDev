@@ -29,13 +29,13 @@ export class WakandaService {
 
   get user(): Promise<ICurrentUser> {
     if (!this.currentUser) {
-      this.refreshUser();
+     return this.refreshUser();
     }
     return this.currentUser;
   }
 
   refreshUser() {
-    this.currentUser = _client.directory
+   return this.currentUser = _client.directory
       .getCurrentUser()
       .catch(() => { });
   }
@@ -66,15 +66,9 @@ export class WakandaService {
     return isOK;
   }
 
-  checkCredentials() {
-    return new Promise((resolve, reject) => {
-      _client.directory.getCurrentUser().then((user) => {
-        this.currentUser = user;
-        resolve(user);
-      }).catch((error) => {
-        reject(error.message);
-      });
-    });
+  async checkCredentials() {
+    this.currentUser = await _client.directory.getCurrentUser();
+    return this.currentUser;
   }
 
 }

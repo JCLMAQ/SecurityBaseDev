@@ -78,7 +78,6 @@ export class AuthenticationService {
   }
 
   hasRole(role: string): Promise<boolean> {
-    debugger;
     if (typeof this.roles[role] === 'undefined') {
       this.roles[role] = this.wakandaService.directory.getCurrentUserBelongsTo(role);
     }

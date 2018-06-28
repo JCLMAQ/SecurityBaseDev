@@ -16,6 +16,7 @@ export class AppComponent implements OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   currentUser: ICurrentUser;
+  canSeeTodos = false;
 
   constructor(
     public authenticationService: AuthenticationService,
@@ -24,7 +25,10 @@ export class AppComponent implements OnDestroy {
     authenticationService.currentUser
       .pipe(
         takeUntil(this.unsubscribe$),
-        tap(u => (this.currentUser = u))
+        tap(u => (this.currentUser = u)),
+        tap(async (u) => {
+          this.canSeeTodos = await authenticationService.hasRole('userTodos');
+        }),
       )
       .subscribe();
     this.authenticationService.refreshUser();

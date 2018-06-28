@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 // import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
-import {GuardService} from './shared/guard.service';
+import {IsUserTodosGuard, IsAdminGuard} from './shared/guard.service';
 
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -25,7 +25,8 @@ const APP_ROUTES: Routes = [{
   component: RegisterComponent
 }, {
   path: 'todos',
-  component: TodoListComponent, canActivate: [GuardService]
+  component: TodoListComponent,
+  canActivate: [IsUserTodosGuard]
 }, {
   path: 'todos/:id',
   component: TodoDetailsComponent,
@@ -37,10 +38,14 @@ const APP_ROUTES: Routes = [{
   component: TodoDetailsComponent
 }, {
   path: 'users',
-  component: UsersComponent
+  component: UsersComponent,
+  canActivate: [IsAdminGuard],
 } ];
 
-export const APP_ROUTING_PROVIDERS: Provider[] = [];
+export const APP_ROUTING_PROVIDERS: Provider[] = [
+  IsUserTodosGuard,
+  IsAdminGuard
+];
 
 export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES, {
   useHash: true

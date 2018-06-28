@@ -5,7 +5,7 @@
         <mat-icon>home</mat-icon>
         Home
       </button>
-      <button mat-button routerLink="todos" *ngIf="authenticationService.hasRole('userTodos') | async" >
+      <button mat-button [routerLink]="['/todos']" *ngIf="canSeeTodos" >
         <mat-icon>list</mat-icon>
         Todos
       </button>

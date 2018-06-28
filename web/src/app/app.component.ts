@@ -1,30 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { WakandaService } from './shared/wakanda.service';
-import {AuthenticationService} from './shared/authentication.service';
-import { Router } from '@angular/router';
+import { Component, OnDestroy } from "@angular/core";
+import {
+  AuthenticationService,
+  ICurrentUser
+} from "./shared/authentication.service";
+import { Router } from "@angular/router";
+import { Subject } from "rxjs";
+import { takeUntil, tap } from "rxjs/operators";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
-export class AppComponent implements OnInit {
-  private currentUser: any = {};
+export class AppComponent implements OnDestroy {
+  private unsubscribe$: Subject<void> = new Subject<void>();
+
+  currentUser: ICurrentUser;
 
   constructor(
-    public wakandaService: WakandaService,
-    public authenticationService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private router: Router
-  ) {}
-  ngOnInit() {
-    this.authenticationService.current().then(user => {
-      this.currentUser = user;
-    }).catch((errorMessage) => {
-      console.log(errorMessage);
-    });
+  ) {
+    authenticationService.currentUser
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        tap(u => (this.currentUser = u))
+      )
+      .subscribe();
+    this.authenticationService.refreshUser();
   }
+
   async logout() {
     await this.authenticationService.logout();
-    this.router.navigate(['']);
+    this.router.navigate(["login"]);
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

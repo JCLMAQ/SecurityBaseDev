@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { WakandaService } from './wakanda.service';
+import { Subject } from 'rxjs';
 
 export class User {
-  constructor(
-    public logon: string,
-    public password: string) { }
+  constructor(public logon: string, public password: string) {}
 }
 export interface ICurrentUser {
   email: string;
@@ -15,69 +14,62 @@ export interface ICurrentUser {
 
 @Injectable()
 export class AuthenticationService {
-  private currentUser:  ICurrentUser;
-// private current: Promise<ICurrentUser>;
-
+  currentUser: Subject<ICurrentUser> = new Subject();
+  // private current: Promise<ICurrentUser>;
 
   constructor(private wakandaService: WakandaService) {}
 
-// async login (username: string, password: string) {
-//   let isOK = false;
-//   isOK = await this.wakandaService.login (username, password);
-//   if (isOK) {
-//         this.refreshUser();
-//       }
-//       return isOK;
-// }
+  // async login (username: string, password: string) {
+  //   let isOK = false;
+  //   isOK = await this.wakandaService.login (username, password);
+  //   if (isOK) {
+  //         this.refreshUser();
+  //       }
+  //       return isOK;
+  // }
 
-// async logout() {
-//   let isOK = false;
-//   isOK = await this.wakandaService.logout ();
-//   if (isOK) {
-//         this.refreshUser();
-//       }
-//       return isOK;
-// }
+  // async logout() {
+  //   let isOK = false;
+  //   isOK = await this.wakandaService.logout ();
+  //   if (isOK) {
+  //         this.refreshUser();
+  //       }
+  //       return isOK;
+  // }
 
-async login(username: string, password: string): Promise<boolean> {
-  let isOK = false;
-  try {
-    isOK = await this.wakandaService.directory.login(username, password);
-  } catch (e) {
-    isOK = false;
+  async login(username: string, password: string): Promise<boolean> {
+    let isOK = false;
+    try {
+      isOK = await this.wakandaService.directory.login(username, password);
+    } catch (e) {
+      isOK = false;
+    }
+    if (isOK) {
+      this.refreshUser();
+    }
+    return isOK;
   }
-  if (isOK) {
-    this.wakandaService.refreshUser();
-  }
-  return isOK;
-}
 
-async logout(): Promise<boolean> {
-  let isOK = false;
-  try {
-    isOK = await this.wakandaService.directory.logout();
-  } catch (e) {
-    isOK = false;
-  }
-  if (isOK) {
-    this.wakandaService.refreshUser();
-  }
-  return isOK;
-}
-
-
-  async current () {
-    let user: ICurrentUser ;
-      user = await this.wakandaService.user;
-    return user;
+  async logout(): Promise<boolean> {
+    let isOK = false;
+    try {
+      isOK = await this.wakandaService.directory.logout();
+    } catch (e) {
+      isOK = false;
+    }
+    if (isOK) {
+      this.refreshUser();
+    }
+    return isOK;
   }
 
   async refreshUser() {
-    await this.wakandaService.refreshUser();
+    this.wakandaService.refreshUser();
+    const u = await this.wakandaService.user;
+    this.currentUser.next(u);
   }
 
   async checkCredentials() {
     await this.wakandaService.checkCredentials();
   }
-
 }

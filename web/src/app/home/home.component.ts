@@ -1,26 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../shared/authentication.service';
-
-export interface ICurrentUser {
-  email: string;
-  fullName: string;
-  ID: string;
-}
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuthenticationService, ICurrentUser } from '../shared/authentication.service';
+import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnDestroy {
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
-  // currentUser: any;
+  currentUser: ICurrentUser;
 
-  constructor( private authenticationService: AuthenticationService) { }
-
-  ngOnInit() {
-   // this.currentUser = this.authenticationService.checkCredentials();
+  constructor(
+    authenticationService: AuthenticationService
+  ) {
+    authenticationService.currentUser.pipe(
+      takeUntil(this.unsubscribe$),
+      tap(u => this.currentUser = u),
+    ).subscribe();
   }
 
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }

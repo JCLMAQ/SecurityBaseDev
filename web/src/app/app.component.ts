@@ -18,7 +18,7 @@ export class AppComponent implements OnDestroy {
   currentUser: ICurrentUser;
 
   constructor(
-    private authenticationService: AuthenticationService,
+    public authenticationService: AuthenticationService,
     private router: Router
   ) {
     authenticationService.currentUser

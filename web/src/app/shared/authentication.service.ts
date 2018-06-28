@@ -15,6 +15,9 @@ export interface ICurrentUser {
 @Injectable()
 export class AuthenticationService {
   currentUser: Subject<ICurrentUser> = new Subject();
+  private roles: {
+    [name: string]: Promise<boolean>;
+  } = {};
   // private current: Promise<ICurrentUser>;
 
   constructor(private wakandaService: WakandaService) {}
@@ -64,6 +67,7 @@ export class AuthenticationService {
   }
 
   async refreshUser() {
+    this.roles = {};
     this.wakandaService.refreshUser();
     const u = await this.wakandaService.user;
     this.currentUser.next(u);
@@ -71,5 +75,14 @@ export class AuthenticationService {
 
   async checkCredentials() {
     await this.wakandaService.checkCredentials();
+  }
+
+  hasRole(role: string): Promise<boolean> {
+    debugger;
+    if (typeof this.roles[role] === 'undefined') {
+      this.roles[role] = this.wakandaService.directory.getCurrentUserBelongsTo(role);
+    }
+
+    return this.roles[role];
   }
 }

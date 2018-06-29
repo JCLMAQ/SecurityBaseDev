@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 // import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
-import {IsUserTodosGuard, IsAdminGuard} from './shared/guard.service';
+import {IsTodoPageGuard, IsAdminGuard} from './shared/guard.service';
 
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -26,7 +26,7 @@ const APP_ROUTES: Routes = [{
 }, {
   path: 'todos',
   component: TodoListComponent,
-  canActivate: [IsUserTodosGuard]
+  canActivate: [IsTodoPageGuard]
 }, {
   path: 'todos/:id',
   component: TodoDetailsComponent,
@@ -43,7 +43,7 @@ const APP_ROUTES: Routes = [{
 } ];
 
 export const APP_ROUTING_PROVIDERS: Provider[] = [
-  IsUserTodosGuard,
+  IsTodoPageGuard,
   IsAdminGuard
 ];
 

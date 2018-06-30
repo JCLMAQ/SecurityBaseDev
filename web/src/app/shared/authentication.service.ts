@@ -81,7 +81,6 @@ export class AuthenticationService {
     if (typeof this.roles[role] === 'undefined') {
       this.roles[role] = this.wakandaService.directory.getCurrentUserBelongsTo(role);
     }
-
     return this.roles[role];
   }
 }

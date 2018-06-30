@@ -16,8 +16,8 @@ export class AppComponent implements OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   currentUser: ICurrentUser;
-  canSeeTodos = false;
-  canSeeUsers = false;
+  canSeeTodosMenu = false;
+  canSeeUsersMenu = false;
 
   constructor(
     public authenticationService: AuthenticationService,
@@ -29,8 +29,8 @@ export class AppComponent implements OnDestroy {
         tap(u => (this.currentUser = u)),
         tap(async (u) => {
 // Ability to show menus
-          this.canSeeTodos = await authenticationService.hasRole('userTodos');
-          this.canSeeUsers = await authenticationService.hasRole('Admin');
+          this.canSeeTodosMenu = await authenticationService.hasRole('userTodos');
+          this.canSeeUsersMenu = await authenticationService.hasRole('Admin');
         }),
       )
       .subscribe();

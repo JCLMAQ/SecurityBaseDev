@@ -3,13 +3,8 @@
 	<user ID="41C89912B00440B3BF0A1C5E4479BFEA" name="jcm" fullName="JCM" password="b883930011b8525ab5e37d83466696a3"/>
 	<user ID="7BCF0132A40241A49106364FA28C599B" name="super" fullName="SUPER-USER" password="fef4c1417d047c58ad4aa8336bb9ca19"/>
 	<group ID="01000000000000000000000000000000" name="Admin">
-<<<<<<< feature/watchguard
 		<include group="Super" groupID="4BF8C9B5398E48D2BD6F5868707C3BC7"/>
 		<include user="admin" ID="C84279B32ED6434599FF1D7B33A21442"/>
-=======
-		<include user="admin" ID="B7F9B62DDE315F498BC706BCEFF16082"/>
-		<include group="Super" groupID="8CB83A3F29764C129DC1773BD6C9D88A"/>
->>>>>>> Directory update
 	</group>
 	<group ID="72F0232D89BC4874A58F57142DD52493" name="TodosPage">
 		<include group="BasicUsers" groupID="A18C7E7C2348485CAD3F09D882954DE4"/>
@@ -27,24 +22,4 @@
 		<include user="jcm" ID="41C89912B00440B3BF0A1C5E4479BFEA"/>
 		<include group="Admin" groupID="01000000000000000000000000000000"/>
 	</group>
-<<<<<<< feature/watchguard
-=======
-	<group ID="8CB83A3F29764C129DC1773BD6C9D88A" name="Super">
-		<include user="super" userID="CB978FFE0C8A4A10A9581C7AF9680BB5"/>
-	</group>
-	<group ID="019A02A00CEC4537AED99DD2C3762A3A" name="TodosPage">
-		<include group="Admin" groupID="01000000000000000000000000000000"/>
-		<include user="jcm" userID="4692405828FA4AF8B47E60D8B4A62AFD"/>
-	</group>
-	<group ID="31AF53F151CB436CA7971907FECB8F6C" name="UsersPage">
-		<include group="Admin" groupID="01000000000000000000000000000000"/>
-	</group>
-	<group ID="562BEC005DAD4C10B437CD5ADD8760C3" name="Basic">
-		<include user="jcm" userID="4692405828FA4AF8B47E60D8B4A62AFD"/>
-		<include group="TodosPage" groupID="019A02A00CEC4537AED99DD2C3762A3A"/>
-	</group>
-	<user ID="4692405828FA4AF8B47E60D8B4A62AFD" name="jcm" fullName="JCM" password="b883930011b8525ab5e37d83466696a3"/>
-	<user ID="B7F9B62DDE315F498BC706BCEFF16082" name="admin" fullName="ADMIN"/>
-	<user ID="CB978FFE0C8A4A10A9581C7AF9680BB5" name="super" fullName="SUPER" password="fef4c1417d047c58ad4aa8336bb9ca19"/>
->>>>>>> Directory update
 </directory>

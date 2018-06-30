@@ -14,11 +14,11 @@
         <input name="password" required matInput [(ngModel)]="password" type="password" placeholder="Password">
       </mat-form-field>
     
-      <button mat-raised-button color="primary" type="submit" (click)="login(username, password)" [disabled]="form.invalid">
+      <button class="button-login" mat-raised-button color="primary" type="submit" (click)="login(username, password)" [disabled]="form.invalid">
         Login
       </button>
       <mat-divider></mat-divider>
-      <button mat-raised-button color="primary" type="submit" (click)="register()">
+      <button lass="button-login" mat-raised-button color="primary" type="submit" (click)="register()">
         Register
       </button>
       <mat-divider></mat-divider>

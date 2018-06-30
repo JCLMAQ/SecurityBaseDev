@@ -17,10 +17,15 @@
   margin-top: 20px;
   }
 
- mat-card-title {
+mat-card-title {
   text-align: center;
 }
 
 mat-card-actions {
   text-align: center;
+}
+
+.button-login {
+  margin: 25px;
+  border: 5px;
 }

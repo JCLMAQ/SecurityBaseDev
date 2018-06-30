@@ -22,24 +22,6 @@ export class AuthenticationService {
 
   constructor(private wakandaService: WakandaService) {}
 
-  // async login (username: string, password: string) {
-  //   let isOK = false;
-  //   isOK = await this.wakandaService.login (username, password);
-  //   if (isOK) {
-  //         this.refreshUser();
-  //       }
-  //       return isOK;
-  // }
-
-  // async logout() {
-  //   let isOK = false;
-  //   isOK = await this.wakandaService.logout ();
-  //   if (isOK) {
-  //         this.refreshUser();
-  //       }
-  //       return isOK;
-  // }
-
   async login(username: string, password: string): Promise<boolean> {
     let isOK = false;
     try {

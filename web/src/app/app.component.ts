@@ -28,8 +28,8 @@ export class AppComponent implements OnDestroy {
         takeUntil(this.unsubscribe$),
         tap(u => (this.currentUser = u)),
         tap(async (u) => {
-// Ability to show menus
-          this.canSeeTodosMenu = await authenticationService.hasRole('userTodos');
+// Ability to show menus # Access to the data or the page underneath that Menu -> Guard.service
+          this.canSeeTodosMenu = await authenticationService.hasRole('BasicUsers');
           this.canSeeUsersMenu = await authenticationService.hasRole('Admin');
         }),
       )

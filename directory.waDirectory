@@ -8,7 +8,7 @@
 	</group>
 	<group ID="72F0232D89BC4874A58F57142DD52493" name="TodosPage">
 		<include group="Admin" groupID="01000000000000000000000000000000"/>
-		<include group="CommonUsers" groupID="A18C7E7C2348485CAD3F09D882954DE4"/>
+		<include group="BasicUsers" groupID="A18C7E7C2348485CAD3F09D882954DE4"/>
 	</group>
 	<group ID="C0013F2A0ADD4D789C90999B3CD1C0C5" name="UsersPage">
 		<include group="Admin" groupID="01000000000000000000000000000000"/>
@@ -19,7 +19,7 @@
 	<group ID="849B240CBFF94060AC717C3EA8FE118D" name="usersTodo">
 		<include group="Admin" groupID="01000000000000000000000000000000"/>
 	</group>
-	<group ID="A18C7E7C2348485CAD3F09D882954DE4" name="CommonUsers">
+	<group ID="A18C7E7C2348485CAD3F09D882954DE4" name="BasicUsers">
 		<include user="jcm" ID="41C89912B00440B3BF0A1C5E4479BFEA"/>
 	</group>
 </directory>

@@ -14,7 +14,19 @@ export class IsTodoPageGuard implements CanActivate {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-    return this.authenticationService.hasRole('TodoPage');
+    return this.authenticationService.hasRole('TodosPage');
+  }
+}
+
+@Injectable()
+export class IsIsUsersPageGuard implements CanActivate {
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+    return this.authenticationService.hasRole('UsersPage');
   }
 }
 
@@ -27,5 +39,17 @@ export class IsAdminGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     return this.authenticationService.hasRole('Admin');
+  }
+}
+
+@Injectable()
+export class IsSuperUserGuard implements CanActivate {
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+    return this.authenticationService.hasRole('Super');
   }
 }

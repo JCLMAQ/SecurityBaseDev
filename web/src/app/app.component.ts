@@ -1,16 +1,16 @@
-import { Component, OnDestroy } from "@angular/core";
+import { Component, OnDestroy } from '@angular/core';
 import {
   AuthenticationService,
   ICurrentUser
-} from "./shared/authentication.service";
-import { Router } from "@angular/router";
-import { Subject } from "rxjs";
-import { takeUntil, tap } from "rxjs/operators";
+} from './shared/authentication.service';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
@@ -36,7 +36,7 @@ export class AppComponent implements OnDestroy {
 
   async logout() {
     await this.authenticationService.logout();
-    this.router.navigate(["login"]);
+    this.router.navigate(['login']);
   }
 
   ngOnDestroy() {

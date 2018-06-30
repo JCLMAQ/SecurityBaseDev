@@ -7,14 +7,14 @@ import { map, switchMap } from 'rxjs/operators';
 
 // prevent non connected users to access the app
 @Injectable()
-export class IsUserTodosGuard implements CanActivate {
+export class IsTodoPageGuard implements CanActivate {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-    return this.authenticationService.hasRole('userTodos');
+    return this.authenticationService.hasRole('TodoPage');
   }
 }
 

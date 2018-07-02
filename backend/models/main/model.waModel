@@ -81,29 +81,32 @@
 				}
 			},
 			"Document": {
-				"panelColor": "#C4BD97",
+				"panelColor": "#E5B9B7",
 				"panel": {
 					"isOpen": "true",
 					"position": {
-						"X": 25,
-						"Y": 20
-					}
+						"X": 63,
+						"Y": 896
+					},
+					"pathVisible": true
 				}
 			},
-			"DataClass1": {
+			"DocServer": {
+				"panelColor": "#7F7F7F",
 				"panel": {
-					"pathVisible": true,
+					"isOpen": "true",
 					"position": {
-						"X": 66,
-						"Y": 898
-					}
+						"X": 317,
+						"Y": 897
+					},
+					"pathVisible": true
 				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 840,
+			"workspaceTop": 707,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -518,8 +521,8 @@
 			]
 		},
 		{
-			"collectionName": "DataClass1Collection",
-			"className": "DataClass1",
+			"collectionName": "DocumentCollection",
+			"className": "Document",
 			"attributes": [
 				{
 					"name": "ID",
@@ -536,35 +539,53 @@
 					"kind": "storage"
 				},
 				{
-					"name": "docType",
+					"name": "docCode",
 					"scope": "public",
 					"type": "string",
 					"kind": "storage"
 				},
 				{
-					"name": "dateDocIn",
-					"scope": "public",
-					"type": "date",
-					"kind": "storage",
-					"matchColumn": "dateIn, docCode"
-				},
-				{
-					"name": "dateValidFrom",
-					"scope": "public",
-					"type": "date",
-					"kind": "storage",
-					"matchColumn": "dateFrom"
-				},
-				{
-					"name": "dateValidTo",
+					"name": "recordDate",
 					"scope": "public",
 					"type": "date",
 					"kind": "storage"
 				},
 				{
-					"name": "document",
+					"name": "validFrom",
+					"scope": "public",
+					"type": "date",
+					"kind": "storage"
+				},
+				{
+					"name": "calidTo",
+					"scope": "public",
+					"type": "date",
+					"kind": "storage"
+				},
+				{
+					"name": "blobDoc",
 					"scope": "public",
 					"type": "blob",
+					"kind": "storage"
+				}
+			]
+		},
+		{
+			"collectionName": "DocServerCollection",
+			"className": "DocServer",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "uuid",
+					"primKey": "true",
+					"autosequence": true,
+					"unique": true
+				},
+				{
+					"name": "serverAdress",
+					"scope": "public",
+					"type": "string",
 					"kind": "storage"
 				}
 			]

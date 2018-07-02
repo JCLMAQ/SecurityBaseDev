@@ -79,12 +79,31 @@
 						"Y": 482
 					}
 				}
+			},
+			"Document": {
+				"panelColor": "#C4BD97",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 25,
+						"Y": 20
+					}
+				}
+			},
+			"DataClass1": {
+				"panel": {
+					"pathVisible": true,
+					"position": {
+						"X": 66,
+						"Y": 898
+					}
+				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 498,
-			"workspaceTop": 4,
+			"workspaceLeft": 0,
+			"workspaceTop": 840,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -258,8 +277,18 @@
 			],
 			"events": [
 				{
+					"kind": "save",
+					"from": "$mainModel.Todo.events.save",
+					"userDefined": true
+				},
+				{
 					"kind": "init",
 					"from": "$mainModel.Todo.events.init"
+				},
+				{
+					"kind": "restrict",
+					"from": "$mainModel.Todo.events.restrict",
+					"userDefined": true
 				}
 			],
 			"methods": [
@@ -485,6 +514,58 @@
 					"from": "$mainModel.UserTodoAssign.entityMethods.getTodos",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
+				}
+			]
+		},
+		{
+			"collectionName": "DataClass1Collection",
+			"className": "DataClass1",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "uuid",
+					"primKey": "true",
+					"autosequence": true,
+					"unique": true
+				},
+				{
+					"name": "docName",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "docType",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "dateDocIn",
+					"scope": "public",
+					"type": "date",
+					"kind": "storage",
+					"matchColumn": "dateIn, docCode"
+				},
+				{
+					"name": "dateValidFrom",
+					"scope": "public",
+					"type": "date",
+					"kind": "storage",
+					"matchColumn": "dateFrom"
+				},
+				{
+					"name": "dateValidTo",
+					"scope": "public",
+					"type": "date",
+					"kind": "storage"
+				},
+				{
+					"name": "document",
+					"scope": "public",
+					"type": "blob",
+					"kind": "storage"
 				}
 			]
 		}

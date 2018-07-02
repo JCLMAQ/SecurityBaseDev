@@ -17,6 +17,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { UsersComponent } from './users/users.component';
 
+import { DocumentComponent } from './document/document.component';
+
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import { ConfirmComponent } from './shared/confirm/confirm.component';
@@ -30,6 +32,11 @@ import { TodoService } from './shared/todo.service';
 import { UserService } from './shared/user.service';
 import { RegisterService} from './register/register.service';
 import { AuthenticationService } from './shared/authentication.service';
+import {DocumentService} from './shared/document.service';
+
+import { AngularFileUploaderModule } from 'angular-file-uploader';
+
+
 
 
 @NgModule({
@@ -44,7 +51,9 @@ import { AuthenticationService } from './shared/authentication.service';
     RegisterComponent,
     UsersComponent,
     SignupComponent,
-    CarouselComponent
+    CarouselComponent,
+    DocumentComponent,
+    AngularFileUploaderModule
   ],
   imports: [
     BrowserModule,
@@ -63,7 +72,8 @@ import { AuthenticationService } from './shared/authentication.service';
     TodoService,
     UserService,
     RegisterService,
-    AuthenticationService
+    AuthenticationService,
+    DocumentService
   ],
   bootstrap: [AppComponent]
 })

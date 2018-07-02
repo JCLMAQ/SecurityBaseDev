@@ -21,5 +21,6 @@
 	</group>
 	<group ID="A18C7E7C2348485CAD3F09D882954DE4" name="BasicUsers">
 		<include user="jcm" ID="41C89912B00440B3BF0A1C5E4479BFEA"/>
+		<include group="Admin" groupID="01000000000000000000000000000000"/>
 	</group>
 </directory>

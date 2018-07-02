@@ -7,7 +7,6 @@
 		<include user="admin" ID="C84279B32ED6434599FF1D7B33A21442"/>
 	</group>
 	<group ID="72F0232D89BC4874A58F57142DD52493" name="TodosPage">
-		<include group="Admin" groupID="01000000000000000000000000000000"/>
 		<include group="BasicUsers" groupID="A18C7E7C2348485CAD3F09D882954DE4"/>
 	</group>
 	<group ID="C0013F2A0ADD4D789C90999B3CD1C0C5" name="UsersPage">

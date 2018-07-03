@@ -52,8 +52,8 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     UsersComponent,
     SignupComponent,
     CarouselComponent,
-    DocumentComponent,
-    AngularFileUploaderModule
+    DocumentComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -63,6 +63,7 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
+    AngularFileUploaderModule,
     APP_ROUTING
   ],
   entryComponents: [ConfirmComponent],

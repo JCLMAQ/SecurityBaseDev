@@ -9,8 +9,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 56,
-						"Y": 52
+						"X": 20,
+						"Y": 53
 					}
 				}
 			},
@@ -97,8 +97,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 317,
-						"Y": 897
+						"X": 338,
+						"Y": 899
 					}
 				}
 			}
@@ -106,7 +106,7 @@
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 607,
+			"workspaceTop": 0,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",

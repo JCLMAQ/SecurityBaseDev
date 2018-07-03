@@ -41,3 +41,13 @@ export interface ITodoType {
     fetch(): Promise<ITodo[]>;
   } 
 }
+
+export interface Document {
+  ID: string;
+  docCode: string;
+  docTitle: string;
+  docCategory: string;
+  docFile?: string;
+  // risk?: Risk;
+  // workContext?: WorkContext;
+}

@@ -84,29 +84,29 @@
 				"panelColor": "#E5B9B7",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
 						"X": 63,
 						"Y": 896
-					},
-					"pathVisible": true
+					}
 				}
 			},
 			"DocServer": {
 				"panelColor": "#7F7F7F",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
 						"X": 317,
 						"Y": 897
-					},
-					"pathVisible": true
+					}
 				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 707,
+			"workspaceTop": 607,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -194,6 +194,95 @@
 					"type": "Todos",
 					"reversePath": true,
 					"path": "type"
+				}
+			]
+		},
+		{
+			"name": "DocServer",
+			"className": "DocServer",
+			"collectionName": "DocServerCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "serverDocAddress",
+					"kind": "storage",
+					"matchColumn": "serverAdress",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "serverDocPort",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"name": "Document",
+			"className": "Document",
+			"collectionName": "DocumentCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "docTitle",
+					"kind": "storage",
+					"matchColumn": "docName",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "docCode",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "docRecordDate",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false,
+					"matchColumn": "recordDate"
+				},
+				{
+					"name": "docBlob",
+					"kind": "storage",
+					"scope": "public",
+					"type": "blob",
+					"matchColumn": "blobDoc"
+				},
+				{
+					"name": "docFile",
+					"kind": "storage",
+					"matchColumn": "fileDoc, file",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "docCategory",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage",
+					"matchColumn": "categoryDoc"
 				}
 			]
 		},
@@ -517,76 +606,6 @@
 					"from": "$mainModel.UserTodoAssign.entityMethods.getTodos",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
-				}
-			]
-		},
-		{
-			"collectionName": "DocumentCollection",
-			"className": "Document",
-			"attributes": [
-				{
-					"name": "ID",
-					"kind": "storage",
-					"type": "uuid",
-					"primKey": "true",
-					"autosequence": true,
-					"unique": true
-				},
-				{
-					"name": "docName",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				},
-				{
-					"name": "docCode",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				},
-				{
-					"name": "recordDate",
-					"scope": "public",
-					"type": "date",
-					"kind": "storage"
-				},
-				{
-					"name": "validFrom",
-					"scope": "public",
-					"type": "date",
-					"kind": "storage"
-				},
-				{
-					"name": "calidTo",
-					"scope": "public",
-					"type": "date",
-					"kind": "storage"
-				},
-				{
-					"name": "blobDoc",
-					"scope": "public",
-					"type": "blob",
-					"kind": "storage"
-				}
-			]
-		},
-		{
-			"collectionName": "DocServerCollection",
-			"className": "DocServer",
-			"attributes": [
-				{
-					"name": "ID",
-					"kind": "storage",
-					"type": "uuid",
-					"primKey": "true",
-					"autosequence": true,
-					"unique": true
-				},
-				{
-					"name": "serverAdress",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
 				}
 			]
 		}

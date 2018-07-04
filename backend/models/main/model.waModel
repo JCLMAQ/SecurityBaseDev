@@ -101,6 +101,17 @@
 						"Y": 899
 					}
 				}
+			},
+			"ChangeTracking": {
+				"panelColor": "#70CCC2",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 676,
+						"Y": 792
+					}
+				}
 			}
 		},
 		"model": {
@@ -124,6 +135,89 @@
 		}
 	},
 	"dataClasses": [
+		{
+			"name": "ChangeTracking",
+			"className": "ChangeTracking",
+			"collectionName": "ChangeTrackingCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "className",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "entityKey",
+					"kind": "storage",
+					"scope": "public",
+					"type": "uuid"
+				},
+				{
+					"name": "changes",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "modifiedDate",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "modifiedBy",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "User",
+					"path": "User"
+				}
+			],
+			"methods": [
+				{
+					"name": "changedCollection",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.ChangeTracking.collectionMethods.changedCollection",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "changedEntity",
+					"applyTo": "entity",
+					"scope": "public",
+					"from": "$mainModel.ChangeTracking.entityMethods.changedEntity",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "getChanges",
+					"applyTo": "dataClass",
+					"scope": "publicOnServer",
+					"from": "$mainModel.ChangeTracking.methods.getChanges",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "writeChanges",
+					"applyTo": "dataClass",
+					"scope": "publicOnServer",
+					"from": "$mainModel.ChangeTracking.methods.writeChanges",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				}
+			]
+		},
 		{
 			"name": "Choice",
 			"className": "Choice",
@@ -258,31 +352,31 @@
 				{
 					"name": "docRecordDate",
 					"kind": "storage",
+					"matchColumn": "recordDate",
 					"scope": "public",
 					"type": "date",
-					"simpleDate": false,
-					"matchColumn": "recordDate"
+					"simpleDate": false
 				},
 				{
 					"name": "docBlob",
 					"kind": "storage",
+					"matchColumn": "blobDoc",
 					"scope": "public",
-					"type": "blob",
-					"matchColumn": "blobDoc"
+					"type": "blob"
 				},
 				{
 					"name": "docFile",
 					"kind": "storage",
-					"matchColumn": "fileDoc, file",
+					"matchColumn": "fileDoc,file",
 					"scope": "public",
 					"type": "string"
 				},
 				{
 					"name": "docCategory",
-					"scope": "public",
-					"type": "string",
 					"kind": "storage",
-					"matchColumn": "categoryDoc"
+					"matchColumn": "categoryDoc",
+					"scope": "public",
+					"type": "string"
 				}
 			]
 		},
@@ -389,6 +483,14 @@
 					"applyTo": "entity",
 					"scope": "public",
 					"from": "$mainModel.Todo.entityMethods.getUsers",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "method1",
+					"applyTo": "dataClass",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Todo.methods.method1",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
 				},
@@ -554,6 +656,14 @@
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
+				},
+				{
+					"name": "changeTrackingCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "ChangeTrackingCollection",
+					"reversePath": true,
+					"path": "modifiedBy"
 				}
 			],
 			"methods": [
@@ -609,6 +719,5 @@
 				}
 			]
 		}
-	],
-	"type": []
+	]
 }

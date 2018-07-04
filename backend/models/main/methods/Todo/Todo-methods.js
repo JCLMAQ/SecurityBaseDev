@@ -7,3 +7,7 @@
 (model.Todo.entityMethods.getUsers = function() {
 	return this.assignedTo.userAssigned;
 }).scope = 'public';
+
+model.Todo.methods.recordChanges = function() {
+		return ds.changeTracking.getChanges(this);
+};

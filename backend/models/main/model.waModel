@@ -116,8 +116,8 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 0,
-			"workspaceTop": 0,
+			"workspaceLeft": 592,
+			"workspaceTop": 749,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -160,7 +160,8 @@
 					"name": "entityKey",
 					"kind": "storage",
 					"scope": "public",
-					"type": "uuid"
+					"type": "uuid",
+					"indexKind": "auto"
 				},
 				{
 					"name": "changes",
@@ -173,7 +174,8 @@
 					"kind": "storage",
 					"scope": "public",
 					"type": "date",
-					"simpleDate": false
+					"simpleDate": false,
+					"indexKind": "auto"
 				},
 				{
 					"name": "modifiedBy",
@@ -487,10 +489,10 @@
 					"userDefined": true
 				},
 				{
-					"name": "method1",
+					"name": "recordChanges",
 					"applyTo": "dataClass",
 					"scope": "publicOnServer",
-					"from": "$mainModel.Todo.methods.method1",
+					"from": "$mainModel.Todo.methods.recordChanges",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
 				},
@@ -719,5 +721,6 @@
 				}
 			]
 		}
-	]
+	],
+	"type": []
 }

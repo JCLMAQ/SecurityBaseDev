@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './shared/material.module';
+
 import { HttpClientModule } from '@angular/common/http';
+
+import { MaterialModule } from './shared/material.module';
+import { FontAweSomeModule } from './shared/fontAweSome.module';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -59,6 +62,7 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FontAweSomeModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

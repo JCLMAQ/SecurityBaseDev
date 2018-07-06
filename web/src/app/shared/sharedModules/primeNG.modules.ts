@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+
 import { AccordionModule } from 'primeng/accordion';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
@@ -128,7 +129,8 @@ const MODULES = [
         ToolbarModule,
         TooltipModule,
         TreeModule,
-        TreeTableModule
+        TreeTableModule,
+
 ];
 
 @NgModule({

@@ -37,8 +37,10 @@ import { UserService } from './shared/user.service';
 import { RegisterService} from './register/register.service';
 import { AuthenticationService } from './shared/authentication.service';
 import {DocumentService} from './shared/document.service';
+import { BreadcrumbService } from './primeng/breadcrump/breadcrumb.service';
 
 import { AngularFileUploaderModule } from 'angular-file-uploader';
+import { BreadcrumpComponent } from './primeng/breadcrump/breadcrump.component';
 
 
 
@@ -56,7 +58,8 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     UsersComponent,
     SignupComponent,
     CarouselComponent,
-    DocumentComponent
+    DocumentComponent,
+    BreadcrumpComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,8 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     UserService,
     RegisterService,
     AuthenticationService,
-    DocumentService
+    DocumentService,
+    BreadcrumbService
   ],
   bootstrap: [AppComponent]
 })

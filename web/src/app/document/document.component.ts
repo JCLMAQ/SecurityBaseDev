@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from '../primeng/breadcrump/breadcrumb.service';
 
 @Component({
   selector: 'app-document',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentComponent implements OnInit {
 
-  constructor() { }
+  constructor( private breadcrumbService: BreadcrumbService,) {
+
+    this.breadcrumbService.setItems([
+      { label: 'Document', routerLink: ['/document'] }
+  ]);
+   }
 
   ngOnInit() {
   }

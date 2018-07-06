@@ -3,6 +3,8 @@ import { AuthenticationService, ICurrentUser } from '../shared/authentication.se
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
+import { BreadcrumbService } from '../primeng/breadcrump/breadcrumb.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,12 +16,18 @@ export class HomeComponent implements OnDestroy {
   currentUser: ICurrentUser;
 
   constructor(
+    private breadcrumbService: BreadcrumbService,
     authenticationService: AuthenticationService
   ) {
     authenticationService.currentUser.pipe(
       takeUntil(this.unsubscribe$),
       tap(u => this.currentUser = u),
     ).subscribe();
+
+    this.breadcrumbService.setItems([
+      { label: 'Home', routerLink: ['/home'] }
+  ]);
+
   }
 
   ngOnDestroy() {

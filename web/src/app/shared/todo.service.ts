@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
-import { WakandaService } from "./wakanda.service";
+import { WakandaService } from './wakanda.service';
 import { ConfirmComponent } from './confirm/confirm.component';
-import { ITodo } from "./interfaces";
+import { ITodo } from './interfaces';
 
 @Injectable()
 export class TodoService {

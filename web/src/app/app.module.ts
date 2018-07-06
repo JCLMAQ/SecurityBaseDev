@@ -5,8 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { MaterialModule } from './shared/material.module';
-import { FontAweSomeModule } from './shared/fontAweSome.module';
+import { MaterialModule } from './shared/sharedModules/material.module';
+import { FontAweSomeModule } from './shared/sharedModules/fontAweSome.module';
+import { PrimeNGModule} from './shared/sharedModules/primeNG.modules';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -56,13 +57,13 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     SignupComponent,
     CarouselComponent,
     DocumentComponent
-    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FontAweSomeModule,
+    PrimeNGModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

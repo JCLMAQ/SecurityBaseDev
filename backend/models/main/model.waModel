@@ -18,10 +18,10 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": true,
+					"pathVisible": false,
 					"position": {
-						"X": 895,
-						"Y": 41
+						"X": 1011,
+						"Y": 39
 					}
 				}
 			},
@@ -116,8 +116,8 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 592,
-			"workspaceTop": 749,
+			"workspaceLeft": 892,
+			"workspaceTop": 0,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -481,18 +481,18 @@
 			],
 			"methods": [
 				{
-					"name": "getUsers",
+					"name": "getChanges",
 					"applyTo": "entity",
-					"scope": "public",
-					"from": "$mainModel.Todo.entityMethods.getUsers",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Todo.entityMethods.getChanges",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
 				},
 				{
-					"name": "recordChanges",
-					"applyTo": "dataClass",
-					"scope": "publicOnServer",
-					"from": "$mainModel.Todo.methods.recordChanges",
+					"name": "getUsers",
+					"applyTo": "entity",
+					"scope": "public",
+					"from": "$mainModel.Todo.entityMethods.getUsers",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
 				},
@@ -668,12 +668,27 @@
 					"path": "modifiedBy"
 				}
 			],
+			"events": [
+				{
+					"kind": "save",
+					"from": "$mainModel.User.events.save",
+					"userDefined": true
+				}
+			],
 			"methods": [
 				{
 					"name": "addUser",
 					"applyTo": "dataClass",
 					"scope": "public",
 					"from": "$mainModel.User.methods.addUser",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "getChanges",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.User.entityMethods.getChanges",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
 				},
@@ -721,6 +736,5 @@
 				}
 			]
 		}
-	],
-	"type": []
+	]
 }

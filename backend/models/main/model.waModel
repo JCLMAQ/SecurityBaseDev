@@ -693,6 +693,14 @@
 					"userDefined": true
 				},
 				{
+					"name": "modifyPassword",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.User.methods.modifyPassword",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
 					"name": "validatePassword",
 					"applyTo": "entity",
 					"scope": "publicOnServer",

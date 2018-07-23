@@ -1,0 +1,37 @@
+<p>
+  document-list works!
+</p>
+
+<p-table #tt [columns]="cols" [value]="docs" [paginator]="true" [rows]="10" 
+[first]="first" sortMode="multiple" selectionMode="multiple" [(selection)]="selectedDocs" dataKey="ID">
+  <ng-template pTemplate="caption">
+      Liste de Documents
+      <div class="ui-helper-clearfix">
+        <button type="button" pButton icon="fa-file-o" iconPos="left" label="All Data" (click)="tt.exportCSV()" style="float:right"></button>
+        <button type="button" pButton icon="fa-file" iconPos="left" label="Selection Only" (click)="tt.exportCSV({selectionOnly:true})" style="float:right"></button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns >
+      <tr>
+        <td>
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </td>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+      <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+          <td>
+              <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+          </td>
+          <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+          </td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+      Il y a {{docs?.length}} docs
+  </ng-template>
+</p-table>

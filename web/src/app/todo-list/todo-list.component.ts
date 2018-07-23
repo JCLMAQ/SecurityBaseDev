@@ -2,10 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
-import { ITodo, IUser } from "../shared/interfaces";
+import { ITodo, IUser } from '../shared/interfaces';
 
 import { TodoService } from '../shared/todo.service';
-import{ UserService } from '../shared/user.service';
+import { UserService } from '../shared/user.service';
 import { WakandaService } from '../shared/wakanda.service';
 
 import { ConfirmComponent } from '../shared/confirm/confirm.component';

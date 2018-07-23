@@ -11,7 +11,7 @@ import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { UsersComponent } from './users/users.component';
 
-import {DocumentComponent} from './document/document.component';
+import {DocumentListComponent} from './documents/document-list/document-list.component';
 
 
 const APP_ROUTES: Routes = [{
@@ -44,8 +44,8 @@ const APP_ROUTES: Routes = [{
   component: UsersComponent,
   canActivate: [IsAdminGuard],
 }, {
-  path: 'document',
-  component: DocumentComponent
+  path: 'documents',
+  component: DocumentListComponent
 }
 
 ];

@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './shared/sharedModules/material.module';
 import { FontAweSomeModule } from './shared/sharedModules/fontAweSome.module';
-import { PrimeNGModule} from './shared/sharedModules/primeNG.modules';
+import { PrimeNGModule} from './shared/sharedModules/primeNG.module';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,7 +21,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { UsersComponent } from './users/users.component';
 
-import { DocumentComponent } from './document/document.component';
+import { DocumentPageComponent } from './documents/document-page/document-page.component';
+import { DocumentListComponent } from './documents/document-list/document-list.component';
 
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component';
@@ -45,6 +46,7 @@ import { BreadcrumpComponent } from './primeng/breadcrump/breadcrump.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,8 +60,9 @@ import { BreadcrumpComponent } from './primeng/breadcrump/breadcrump.component';
     UsersComponent,
     SignupComponent,
     CarouselComponent,
-    DocumentComponent,
-    BreadcrumpComponent
+    BreadcrumpComponent,
+    DocumentPageComponent,
+    DocumentListComponent
   ],
   imports: [
     BrowserModule,

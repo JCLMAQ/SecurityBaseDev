@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { BreadcrumbService } from '../../primeng/breadcrump/breadcrumb.service';
+import { BreadcrumbService } from './breadcrumb.service';
 import { Subscription } from 'rxjs';
 import { MenuItem } from 'primeng/primeng';
 

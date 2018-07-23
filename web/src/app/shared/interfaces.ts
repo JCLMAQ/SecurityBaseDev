@@ -42,12 +42,10 @@ export interface ITodoType {
   } 
 }
 
-export interface Document {
+export interface IDocument {
   ID: string;
   docCode: string;
   docTitle: string;
   docCategory: string;
   docFile?: string;
-  // risk?: Risk;
-  // workContext?: WorkContext;
 }

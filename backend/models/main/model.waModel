@@ -116,8 +116,8 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 892,
-			"workspaceTop": 0,
+			"workspaceLeft": 0,
+			"workspaceTop": 879,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -306,7 +306,8 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "uuid",
-					"primKey": true
+					"primKey": true,
+					"autogenerate": true
 				},
 				{
 					"name": "serverDocAddress",
@@ -336,7 +337,8 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "uuid",
-					"primKey": true
+					"primKey": true,
+					"autogenerate": true
 				},
 				{
 					"name": "docTitle",
@@ -744,5 +746,6 @@
 				}
 			]
 		}
-	]
+	],
+	"type": []
 }

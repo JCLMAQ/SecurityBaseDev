@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from '../../primeng/breadcrump/breadcrumb.service';
 
+import { MenuItem } from 'primeng/primeng';
 
 import { IDocument } from '../../shared/interfaces';
 import { DocumentService } from '../../shared/document.service';
@@ -20,6 +21,11 @@ export class DocumentListComponent implements OnInit {
   first = 0;
   selectedDoc: IDocument;
   selectedDocs: IDocument[];
+  newDoc: boolean = false;
+  editDoc:boolean = false;
+  deleteDoc:boolean = false;
+
+  items: MenuItem[];
 
   constructor(
     private breadcrumbService: BreadcrumbService,
@@ -38,6 +44,17 @@ export class DocumentListComponent implements OnInit {
       { field: 'docCode', header: 'Réf.' },
       { field: 'ID', header: 'ID' },
   ];
+  this.items = [
+    {label: 'All Data', icon: 'fas fa-file', command: () => {
+      //this.exportCSV(); 
+       //"dt.exportCSV()"
+      // this.update();
+    }},
+    {label: 'Selected data only', icon: 'far fa-file', command: () => {
+        // dt.exportCSV({selectionOnly:true})
+    }}
+];
+
   }
   private setData(d: {
     list: IDocument[];

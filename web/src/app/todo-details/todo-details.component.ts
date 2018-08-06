@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { ITodo, IUser, ITodoType } from "../shared/interfaces";
+import { ITodo, IUser, ITodoType } from '../shared/interfaces';
 
 import { TodoService } from '../shared/todo.service';
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
@@ -19,7 +19,7 @@ export class TodoDetailsComponent implements OnInit {
   current: ITodo ;
   todoCols1: string[] = ['description', 'done', 'public'];
   todos1: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
-  users:IUser[];
+  users: IUser[];
   types: ITodoType[] = [];
   selectedTypeTodo: ITodoType;
 

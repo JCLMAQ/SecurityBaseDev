@@ -16,20 +16,20 @@ import { MatDialog } from '@angular/material';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent{
+export class TodoListComponent {
   // cols: string[] = ['ID', 'description', 'done', 'chips','tools'];
-  cols: string[] = ['description', 'done', 'public', 'chips','tools'];
+  cols: string[] = ['description', 'done', 'public', 'chips', 'tools'];
   todos: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
   currentTodo: ITodo;
-  countTodo: number = 0;
+  countTodo = 0;
 
   userCols: string[] = ['fullName', 'actions'];
   users: MatTableDataSource<IUser> = new MatTableDataSource<IUser>([]);
   users1: MatTableDataSource<IUser> = new MatTableDataSource<IUser>([]);
-  currentUser:IUser;
-  countUser: number = 0;
- 
-  editable: boolean = false;
+  currentUser: IUser;
+  countUser = 0;
+
+  editable = false;
   isOpenSidePanel: Boolean = false;
 // Chips test
   color: string;
@@ -54,14 +54,14 @@ export class TodoListComponent{
     this.refresh();
   }
 
-  async onSort(a,b,c) {
-    let qOptions: any = {
+  async onSort(a, b, c) {
+    const qOptions: any = {
       pageSize: 10,
       start: 0
     };
 
-    if(this.sort.direction){
-      qOptions.orderBy = this.sort.active + ' ' + this.sort.direction
+    if (this.sort.direction) {
+      qOptions.orderBy = this.sort.active + ' ' + this.sort.direction;
     }
 
     const result = await this.todoService.getAll(qOptions);
@@ -91,13 +91,13 @@ export class TodoListComponent{
   async onNavigate(p) {
     const result = await this.todoService.getAll({
       pageSize: p.pageSize,
-      start: p.pageSize*p.pageIndex
+      start: p.pageSize * p.pageIndex
     });
 
     this.setData(result);
   }
 
-  async save(todo){
+  async save(todo) {
     const isSaved = await todo.save();
     this.editable = false;
     if (isSaved) {
@@ -105,10 +105,10 @@ export class TodoListComponent{
     }
   }
 
-  cancel(){
-    this.editable= false;
+  cancel() {
+    this.editable = false;
 
-    if(this.currentTodo && !this.currentTodo._key){
+    if (this.currentTodo && !this.currentTodo._key) {
       this.isOpenSidePanel = false;
       this.currentTodo = null;
     } else {
@@ -116,27 +116,27 @@ export class TodoListComponent{
     }
   }
 
-  async search(value: string, $ev){
-    let v = value? value.trim(): '';
+  async search(value: string, $ev) {
+    const v = value ? value.trim() : '';
 
-    if(
+    if (
       ($ev.keyCode >= 48 && $ev.keyCode <= 57) ||
       ($ev.keyCode >= 65 && $ev.keyCode <= 90) ||
       ([8].indexOf($ev.keyCode) >= 0)
-    ){
+    ) {
       const result = await this.todoService.getAll({
         pageSize: 10,
         start: 0,
-        filter: "description == :1",
+        filter: 'description == :1',
         params: [`*${v}*`]
       });
       this.setData(result);
-    } else if(!v){
+    } else if (!v) {
       this.refresh();
     }
   }
 
-  async create(todo){
+  async create(todo) {
     const Todo = await this.todoService.getClass();
     this.currentTodo = Todo.create();
     this.editable = true;
@@ -146,12 +146,12 @@ export class TodoListComponent{
   private setData(d: {
     list: ITodo[];
     count: number;
-  }){
+  }) {
     this.todos = new MatTableDataSource<ITodo>(d.list);
     this.countTodo = d.count;
   }
 
- async removeFromUser(todo: ITodo, user: IUser){
+ async removeFromUser(todo: ITodo, user: IUser) {
     const ds = await this.wakanda.catalog;
     const relation = await ds.TodoUser.query({
       filter: 'userAssigned.ID == :1 && todoAssigned.ID == :2',
@@ -159,9 +159,9 @@ export class TodoListComponent{
       pageSize: 1
     });
 
-    if(relation.entities.length){
+    if (relation.entities.length) {
       await relation.entities[0].delete();
     }
     this.select(todo);
-  };
+  }
 }

@@ -1,1 +1,17 @@
-{  "name": "SecurityBaseDev",  "components": [    {      "type": "backend",      "template": "wakanda-javascript",      "name": "backend",      "path": "./backend"    },        {      "type": "web",      "template": "angular-cli",      "name": "web",      "path": "./web"    }    ]}
+{
+  "name": "BaseDev",
+  "components": [
+    {
+      "type": "backend",
+      "template": "wakanda-javascript",
+      "name": "backend",
+      "path": "./backend"
+    },
+        {
+      "type": "web",
+      "template": "angular-cli",
+      "name": "web",
+      "path": "./web"
+    }
+    ]
+}

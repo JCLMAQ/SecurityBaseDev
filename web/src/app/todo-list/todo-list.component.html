@@ -15,10 +15,10 @@
     <mat-drawer-container class= "firstcardspace">
 
       <mat-drawer-content  class= "firstcardspace">
-        <button mat-mini-fab color="primary" style="float: right;" (click)="isOpenSidePanel=!isOpenSidePanel">
+        <!-- <button mat-mini-fab color="primary" style="float: right;" (click)="isOpenSidePanel=!isOpenSidePanel">
           <mat-icon *ngIf= "isOpenSidePanel">chevron_left</mat-icon>
           <mat-icon *ngIf= "!isOpenSidePanel">chevron_right</mat-icon>
-        </button>
+        </button> -->
         <!-- Start of the todo list -->
         <mat-table  #todoList [dataSource]="todos"
                     matSort (matSortChange)="onSort()">
@@ -47,7 +47,7 @@
             </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="chips">
+          <!-- <ng-container matColumnDef="chips">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Chips test</mat-header-cell>
             <mat-cell *matCellDef="let one">
               <mat-chip-list selectable= "true">
@@ -56,7 +56,7 @@
                 </mat-chip>
               </mat-chip-list>
             </mat-cell>
-          </ng-container>
+          </ng-container> -->
 
           <ng-container matColumnDef="tools">
             <mat-header-cell *matHeaderCellDef> Tools </mat-header-cell>
@@ -84,80 +84,78 @@
       </mat-drawer-content>
       <!-- End of the todo list -->
     <!-- Start of the todo item panel -->
-      <mat-drawer #drawer [opened]="isOpenSidePanel" mode="side" position="end">
+       <!-- <mat-drawer #drawer [opened]="isOpenSidePanel" mode="side" position="end">
 
-      <mat-card *ngIf="currentTodo">
-        <mat-card-title>
-          <h6>Details of the todo "{{currentTodo.ID}}"</h6>
-        </mat-card-title>
-        <mat-card-content class = "detailform">
-          <!-- Start of the detail form -->
-            <mat-form-field>
-              <input matInput placeholder="ID" type="text" disabled [value]="currentTodo.ID">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Description" type="text" [(ngModel)]="currentTodo.description" [disabled]="!editable">
-            </mat-form-field>
-            <mat-checkbox [(ngModel)]="currentTodo.done" [disabled]="!editable"></mat-checkbox>
-            <mat-checkbox [(ngModel)]="currentTodo.public" [disabled]="!editable"></mat-checkbox>
-          <!-- End of the detail form -->
-        
-         <!--Start of the users list -->
-              <mat-card class = "userlist">
-                <mat-card-title>
-                  <h6>Users concerned</h6>
-                </mat-card-title>
-                <mat-card-content>
-                    <div class="col-md-6">
-                        <mat-table  #usersList [dataSource]="users">                         
-                          <ng-container matColumnDef="fullName">
-                            <mat-header-cell *matHeaderCellDef>Full Name</mat-header-cell>
-                            <mat-cell *matCellDef="let one">{{one.fullName}}</mat-cell>
-                          </ng-container>
-                          <ng-container matColumnDef="actions">
-                            <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-                            <mat-cell *matCellDef="let one">
-                              <button mat-icon-button (click)="removeFromUser(currentTodo, one)">
-                                <mat-icon>delete</mat-icon>
-                              </button>
-                              <button mat-icon-button (click)="removeUser(currentTodo, one)">
-                                <mat-icon>delete_forever</mat-icon>
-                              </button>
-                            </mat-cell>
-                          </ng-container>
-                          <mat-header-row *matHeaderRowDef="userCols"></mat-header-row>
-                          <mat-row  *matRowDef="let row; columns: userCols;"></mat-row>
-                        </mat-table>
-                      </div>
-                  
-                </mat-card-content>
-              </mat-card>
-         <!--End of the users list -->
-      </mat-card-content>
-
-        
-        <mat-card-footer>
-          <button mat-button (click)="editable=!editable">
-            <mat-icon>edit</mat-icon>
-            Edit
-          </button>
-          <button mat-button *ngIf="editable" (click)="save(currentTodo)">
-            <mat-icon>save</mat-icon>
-            Save
-          </button>
-          <button mat-button *ngIf="editable" (click)="cancel()">
-            <mat-icon>cancel</mat-icon>
-            Cancel
-          </button>
-          <button mat-button (click)="remove(currentTodo)" *ngIf="currentTodo._key">
-            <mat-icon>delete</mat-icon>
-            Remove
-          </button>
-        </mat-card-footer>
-      </mat-card>
+        <mat-card *ngIf="currentTodo">
+          <mat-card-title>
+            <h6>Details of the todo "{{currentTodo.ID}}"</h6>
+          </mat-card-title>
+          <mat-card-content class = "detailform">
+            
+              <mat-form-field>
+                <input matInput placeholder="ID" type="text" disabled [value]="currentTodo.ID">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Description" type="text" [(ngModel)]="currentTodo.description" [disabled]="!editable">
+              </mat-form-field>
+              <mat-checkbox [(ngModel)]="currentTodo.done" [disabled]="!editable"></mat-checkbox>
+              <mat-checkbox [(ngModel)]="currentTodo.public" [disabled]="!editable"></mat-checkbox>
+            
+          
+            
+                <mat-card class = "userlist">
+                  <mat-card-title>
+                    <h6>Users concerned</h6>
+                  </mat-card-title>
+                  <mat-card-content>
+                      <div class="col-md-6">
+                          <mat-table  #usersList [dataSource]="users">                         
+                            <ng-container matColumnDef="fullName">
+                              <mat-header-cell *matHeaderCellDef>Full Name</mat-header-cell>
+                              <mat-cell *matCellDef="let one">{{one.fullName}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="actions">
+                              <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                              <mat-cell *matCellDef="let one">
+                                <button mat-icon-button (click)="removeFromUser(currentTodo, one)">
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="removeUser(currentTodo, one)">
+                                  <mat-icon>delete_forever</mat-icon>
+                                </button>
+                              </mat-cell>
+                            </ng-container>
+                            <mat-header-row *matHeaderRowDef="userCols"></mat-header-row>
+                            <mat-row  *matRowDef="let row; columns: userCols;"></mat-row>
+                          </mat-table>
+                        </div>
+                    
+                  </mat-card-content>
+                </mat-card>
+          
+          </mat-card-content>
+          <mat-card-footer>
+            <button mat-button (click)="editable=!editable">
+              <mat-icon>edit</mat-icon>
+              Edit
+            </button>
+            <button mat-button *ngIf="editable" (click)="save(currentTodo)">
+              <mat-icon>save</mat-icon>
+              Save
+            </button>
+            <button mat-button *ngIf="editable" (click)="cancel()">
+              <mat-icon>cancel</mat-icon>
+              Cancel
+            </button>
+            <button mat-button (click)="remove(currentTodo)" *ngIf="currentTodo._key">
+              <mat-icon>delete</mat-icon>
+              Remove
+            </button>
+          </mat-card-footer>
+        </mat-card>
       </mat-drawer>
-      <!-- End of the drawer panel -->
-    </mat-drawer-container>
+      -->
+    </mat-drawer-container> 
   </mat-card-content>
   <mat-card-footer><span *ngIf="error">{{error}}</span></mat-card-footer>
 </mat-card>

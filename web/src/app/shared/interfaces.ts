@@ -12,7 +12,7 @@ export interface ITodo {
   mainTodo? : ITodo;
   save(): void;
   delete(): void;
-  removeTodo(): void;
+  removeTodoUser(): void;
   getUsers(): Promise<{
     entities: IUser[];
     _count: number;
@@ -25,6 +25,8 @@ export interface IUser {
   fullName: string;
   group: string;
   _key?: string;
+  save(): void;
+  delete(): void;
   getTodos(): Promise<{
     entities: ITodo[];
     _count: number;

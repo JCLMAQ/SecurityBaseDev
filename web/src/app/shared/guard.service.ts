@@ -19,7 +19,7 @@ export class IsTodoPageGuard implements CanActivate {
 }
 
 @Injectable()
-export class IsIsUsersPageGuard implements CanActivate {
+export class IsUsersPageGuard implements CanActivate {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router

@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ITodo, IUser } from "../shared/interfaces";
 
@@ -16,8 +17,16 @@ import { MatDialog } from '@angular/material';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent{
-  // cols: string[] = ['ID', 'description', 'done', 'chips','tools'];
+
+  
+
+export class TodoListComponent {
+
+  @Input()
+  route: ActivatedRoute;
+
+// ngOnInit() {};
+
   cols: string[] = ['description', 'done', 'public', 'tools'];
   todos: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
   currentTodo: ITodo;
@@ -30,6 +39,7 @@ export class TodoListComponent{
   countUser: number = 0;
  
   editable: boolean = false;
+  createTodo: boolean = false; 
   isOpenSidePanel: Boolean = false;
 // Chips test
   // color: string;
@@ -48,6 +58,7 @@ export class TodoListComponent{
     private todoService: TodoService,
     private usersService: UserService,
     private wakanda: WakandaService,
+    private router: Router,
     private dialog: MatDialog
   ) {
     this.refresh();
@@ -87,6 +98,10 @@ export class TodoListComponent{
     }
   }
 
+navigate(id) {
+    this.router.navigate(['/todos', id, 'view']);
+  }
+
   async onNavigate(p) {
     const result = await this.todoService.getAll({
       pageSize: p.pageSize,
@@ -99,6 +114,7 @@ export class TodoListComponent{
   async save(todo){
     const isSaved = await todo.save();
     this.editable = false;
+    this.createTodo = false;
     if (isSaved) {
       this.refresh();
     }
@@ -106,7 +122,7 @@ export class TodoListComponent{
 
   cancel(){
     this.editable= false;
-
+    this.createTodo = false;
     if(this.currentTodo && !this.currentTodo._key){
       this.isOpenSidePanel = false;
       this.currentTodo = null;
@@ -138,8 +154,13 @@ export class TodoListComponent{
   async create(todo){
     const Todo = await this.todoService.getClass();
     this.currentTodo = Todo.create();
+    // const todoId = this.currentTodo.ID;
     this.editable = true;
-    this.isOpenSidePanel = true;
+    this.createTodo = true;
+    //debugger;
+    //this.isOpenSidePanel = true;
+    //this.router.navigate(['/todos']);
+    //this.router.navigate(['/todos', todoId]);
   }
 
   private setData(d: {

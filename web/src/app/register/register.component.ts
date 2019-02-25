@@ -31,7 +31,7 @@ export class RegisterComponent {
         alert(res.errorMessage);
       }
     } catch (e) {
-      alert('Error while signuping a new user');
+      alert('Error while signing up a new user');
     }
     this.router.navigate(['login']);
   }

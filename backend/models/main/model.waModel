@@ -84,7 +84,7 @@
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 0,
+			"workspaceTop": 4,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -265,6 +265,11 @@
 				{
 					"kind": "init",
 					"from": "$mainModel.Todo.events.init"
+				},
+				{
+					"kind": "remove",
+					"from": "$mainModel.Todo.events.remove",
+					"userDefined": true
 				},
 				{
 					"kind": "restrict",

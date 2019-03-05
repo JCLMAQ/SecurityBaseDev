@@ -79,12 +79,34 @@
 						"Y": 482
 					}
 				}
+			},
+			"Group": {
+				"panelColor": "#CCC1D9",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 1633,
+						"Y": 44
+					},
+					"pathVisible": false
+				}
+			},
+			"UserGroup": {
+				"panelColor": "#C4BD97",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 1271,
+						"Y": 40
+					},
+					"pathVisible": true
+				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 0,
-			"workspaceTop": 4,
+			"workspaceLeft": 997,
+			"workspaceTop": 18,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -432,10 +454,11 @@
 					"type": "image"
 				},
 				{
-					"name": "role",
+					"name": "roles",
 					"kind": "storage",
 					"scope": "public",
-					"type": "string"
+					"type": "string",
+					"matchColumn": "role"
 				},
 				{
 					"name": "fullName",
@@ -444,10 +467,12 @@
 					"type": "string"
 				},
 				{
-					"name": "group",
-					"kind": "storage",
+					"name": "userGroupCollection",
 					"scope": "public",
-					"type": "string"
+					"reversePath": true,
+					"path": "user",
+					"type": "UserGroups",
+					"kind": "relatedEntities"
 				}
 			],
 			"methods": [
@@ -490,6 +515,10 @@
 					"scope": "public",
 					"type": "Todos",
 					"path": "assignedTodos.todoAssigned"
+				},
+				{
+					"name": "roles",
+					"scope": "public"
 				}
 			],
 			"methods": [
@@ -502,6 +531,65 @@
 					"userDefined": true
 				}
 			]
+		},
+		{
+			"collectionName": "Groups",
+			"className": "Group",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "uuid",
+					"primKey": "true",
+					"autosequence": true,
+					"unique": true,
+					"autogenerate": true
+				},
+				{
+					"name": "name",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "userGroupCollection",
+					"scope": "public",
+					"reversePath": true,
+					"path": "group",
+					"type": "UserGroups",
+					"kind": "relatedEntities"
+				}
+			]
+		},
+		{
+			"collectionName": "UserGroups",
+			"className": "UserGroup",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "uuid",
+					"primKey": "true",
+					"autosequence": true,
+					"unique": true,
+					"autogenerate": true
+				},
+				{
+					"name": "user",
+					"scope": "public",
+					"path": "User",
+					"type": "User",
+					"kind": "relatedEntity"
+				},
+				{
+					"name": "group",
+					"scope": "public",
+					"path": "Group",
+					"type": "Group",
+					"kind": "relatedEntity"
+				}
+			]
 		}
-	]
+	],
+	"type": []
 }

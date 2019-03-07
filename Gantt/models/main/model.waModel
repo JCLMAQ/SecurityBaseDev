@@ -1,0 +1,176 @@
+{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"GanttTask": {
+				"panelColor": "#B2A2C7",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 25,
+						"Y": 20
+					},
+					"pathVisible": true
+				}
+			},
+			"GanttLink": {
+				"panelColor": "#4FA997",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 372,
+						"Y": 26
+					}
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 0,
+			"lastScriptLocation": {
+				"GanttTask": {
+					"method": "GanttTask/GanttTask-methods.js"
+				},
+				"GanttLink": {
+					"method": "GanttLink/GanttLink-methods.js"
+				}
+			}
+		}
+	},
+	"dataClasses": [
+		{
+			"name": "GanttLink",
+			"className": "GanttLink",
+			"collectionName": "GanttLinks",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "source",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "target",
+					"scope": "public",
+					"type": "long",
+					"kind": "storage"
+				},
+				{
+					"name": "type",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				}
+			],
+			"methods": [
+				{
+					"name": "editL",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.GanttLink.entityMethods.editL",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "ganttLinksSource",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.GanttLink.collectionMethods.ganttLinksSource",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				}
+			]
+		},
+		{
+			"name": "GanttTask",
+			"className": "GanttTask",
+			"collectionName": "GanttTasks",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "start_date",
+					"scope": "public",
+					"type": "date",
+					"kind": "storage"
+				},
+				{
+					"name": "text",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "progress",
+					"scope": "public",
+					"type": "number",
+					"kind": "storage"
+				},
+				{
+					"name": "duration",
+					"scope": "public",
+					"type": "long",
+					"kind": "storage"
+				},
+				{
+					"name": "sortOrder",
+					"scope": "public",
+					"type": "long",
+					"kind": "storage"
+				},
+				{
+					"name": "parent",
+					"scope": "public",
+					"type": "long",
+					"kind": "storage"
+				},
+				{
+					"name": "open",
+					"scope": "public",
+					"type": "bool",
+					"kind": "storage"
+				}
+			],
+			"methods": [
+				{
+					"name": "editT",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.GanttTask.entityMethods.editT",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "ganttTasksSource",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.GanttTask.collectionMethods.ganttTasksSource",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				}
+			]
+		}
+	],
+	"type": []
+}

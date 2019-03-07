@@ -1,1 +1,29 @@
-{  "name": "SecurityBaseDev",  "components": [    {      "type": "backend",      "template": "wakanda-javascript",      "name": "backend",      "path": "./backend"    },        {      "type": "web",      "template": "angular-cli",      "name": "web",      "path": "./web"    }    ]}
+{
+  "name": "SecurityBaseDev",
+  "components": [
+    {
+      "type": "backend",
+      "template": "wakanda-javascript",
+      "name": "backend",
+      "path": "./backend"
+    },
+        {
+      "type": "web",
+      "template": "angular-cli",
+      "name": "web",
+      "path": "./web"
+    },
+        {
+      "type": "backend",
+      "template": "wakanda-javascript",
+      "name": "LDAP",
+      "path": "./LDAP"
+    },
+        {
+      "type": "backend",
+      "template": "wakanda-javascript",
+      "name": "Gantt",
+      "path": "./Gantt"
+    }
+    ]
+}

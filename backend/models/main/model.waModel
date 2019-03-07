@@ -84,20 +84,42 @@
 				"panelColor": "#CCC1D9",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": false,
 					"position": {
 						"X": 1633,
 						"Y": 44
-					},
-					"pathVisible": false
+					}
 				}
 			},
 			"UserGroup": {
 				"panelColor": "#C4BD97",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
 						"X": 1271,
 						"Y": 40
+					}
+				}
+			},
+			"Task": {
+				"panelColor": "rgb(255, 255, 0)",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 317,
+						"Y": 725
+					},
+					"pathVisible": true
+				}
+			},
+			"Link": {
+				"panelColor": "rgb(255, 255, 0)",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 564,
+						"Y": 723
 					},
 					"pathVisible": true
 				}
@@ -105,8 +127,8 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 997,
-			"workspaceTop": 18,
+			"workspaceLeft": 0,
+			"workspaceTop": 337,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -194,6 +216,38 @@
 					"type": "Todos",
 					"reversePath": true,
 					"path": "type"
+				}
+			]
+		},
+		{
+			"name": "Group",
+			"className": "Group",
+			"collectionName": "Groups",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "name",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "userGroupCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "UserGroups",
+					"reversePath": true,
+					"path": "group"
 				}
 			]
 		},
@@ -456,9 +510,9 @@
 				{
 					"name": "roles",
 					"kind": "storage",
+					"matchColumn": "role",
 					"scope": "public",
-					"type": "string",
-					"matchColumn": "role"
+					"type": "string"
 				},
 				{
 					"name": "fullName",
@@ -468,11 +522,11 @@
 				},
 				{
 					"name": "userGroupCollection",
+					"kind": "relatedEntities",
 					"scope": "public",
-					"reversePath": true,
-					"path": "user",
 					"type": "UserGroups",
-					"kind": "relatedEntities"
+					"reversePath": true,
+					"path": "user"
 				}
 			],
 			"methods": [
@@ -502,6 +556,12 @@
 			"extends": "User",
 			"attributes": [
 				{
+					"name": "roles",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
 					"name": "assignedTodos",
 					"kind": "relatedEntities",
 					"scope": "public",
@@ -515,10 +575,6 @@
 					"scope": "public",
 					"type": "Todos",
 					"path": "assignedTodos.todoAssigned"
-				},
-				{
-					"name": "roles",
-					"scope": "public"
 				}
 			],
 			"methods": [
@@ -533,60 +589,110 @@
 			]
 		},
 		{
-			"collectionName": "Groups",
-			"className": "Group",
+			"name": "UserGroup",
+			"className": "UserGroup",
+			"collectionName": "UserGroups",
+			"scope": "public",
 			"attributes": [
 				{
 					"name": "ID",
 					"kind": "storage",
-					"type": "uuid",
-					"primKey": "true",
-					"autosequence": true,
+					"scope": "public",
 					"unique": true,
-					"autogenerate": true
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
 				},
 				{
-					"name": "name",
+					"name": "user",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "User",
+					"path": "User"
+				},
+				{
+					"name": "group",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Group",
+					"path": "Group"
+				}
+			]
+		},
+		{
+			"collectionName": "Tasks",
+			"className": "Task",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "long",
+					"autosequence": "true",
+					"unique": "true",
+					"primKey": "true"
+				},
+				{
+					"name": "start_Date",
 					"scope": "public",
 					"type": "string",
 					"kind": "storage"
 				},
 				{
-					"name": "userGroupCollection",
+					"name": "text",
 					"scope": "public",
-					"reversePath": true,
-					"path": "group",
-					"type": "UserGroups",
-					"kind": "relatedEntities"
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "duration",
+					"scope": "public",
+					"type": "long",
+					"kind": "storage"
+				},
+				{
+					"name": "progress",
+					"scope": "public",
+					"type": "number",
+					"kind": "storage"
+				},
+				{
+					"name": "parent",
+					"scope": "public",
+					"type": "long",
+					"kind": "storage"
 				}
 			]
 		},
 		{
-			"collectionName": "UserGroups",
-			"className": "UserGroup",
+			"collectionName": "LinkCollection",
+			"className": "Link",
 			"attributes": [
 				{
 					"name": "ID",
 					"kind": "storage",
-					"type": "uuid",
-					"primKey": "true",
-					"autosequence": true,
-					"unique": true,
-					"autogenerate": true
+					"type": "long",
+					"autosequence": "true",
+					"unique": "true",
+					"primKey": "true"
 				},
 				{
-					"name": "user",
+					"name": "source",
 					"scope": "public",
-					"path": "User",
-					"type": "User",
-					"kind": "relatedEntity"
+					"type": "long",
+					"kind": "storage"
 				},
 				{
-					"name": "group",
+					"name": "target",
 					"scope": "public",
-					"path": "Group",
-					"type": "Group",
-					"kind": "relatedEntity"
+					"type": "long",
+					"kind": "storage"
+				},
+				{
+					"name": "type",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
 				}
 			]
 		}

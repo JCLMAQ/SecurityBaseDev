@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { InMemoryDataService } from './gantt/services/in-memory-data.service';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -30,6 +33,7 @@ import { TodoService } from './shared/todo.service';
 import { UserService } from './shared/user.service';
 import { RegisterService} from './register/register.service';
 import { AuthenticationService } from './shared/authentication.service';
+import { GanttComponent } from './gantt/gantt.component';
 
 
 @NgModule({
@@ -44,7 +48,8 @@ import { AuthenticationService } from './shared/authentication.service';
     RegisterComponent,
     UsersComponent,
     SignupComponent,
-    CarouselComponent
+    CarouselComponent,
+    GanttComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,7 @@ import { AuthenticationService } from './shared/authentication.service';
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
+   // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     APP_ROUTING
   ],
   entryComponents: [ConfirmComponent],

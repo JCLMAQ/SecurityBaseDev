@@ -10,6 +10,7 @@ import {IsTodoPageGuard, IsAdminGuard} from './shared/guard.service';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { UsersComponent } from './users/users.component';
+import { GanttComponent } from './gantt/gantt.component';
 
 const APP_ROUTES: Routes = [{
   path: '',
@@ -40,6 +41,10 @@ const APP_ROUTES: Routes = [{
   path: 'users',
   component: UsersComponent,
   canActivate: [IsAdminGuard],
+},{
+  path: 'gantt',
+  component: GanttComponent
+  //canActivate: [IsAdminGuard],
 } ];
 
 export const APP_ROUTING_PROVIDERS: Provider[] = [

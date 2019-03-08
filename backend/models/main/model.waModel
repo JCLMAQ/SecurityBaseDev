@@ -106,29 +106,29 @@
 				"panelColor": "rgb(255, 255, 0)",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
-						"X": 317,
-						"Y": 725
-					},
-					"pathVisible": true
+						"X": 80,
+						"Y": 925
+					}
 				}
 			},
 			"Link": {
 				"panelColor": "rgb(255, 255, 0)",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
-						"X": 564,
-						"Y": 723
-					},
-					"pathVisible": true
+						"X": 353,
+						"Y": 928
+					}
 				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 337,
+			"workspaceTop": 637,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -248,6 +248,88 @@
 					"type": "UserGroups",
 					"reversePath": true,
 					"path": "group"
+				}
+			]
+		},
+		{
+			"name": "Link",
+			"className": "Link",
+			"collectionName": "LinkCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "source",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "target",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "type",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"className": "Task",
+			"collectionName": "Tasks",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "start_Date",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "text",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "duration",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
+				},
+				{
+					"name": "progress",
+					"kind": "storage",
+					"scope": "public",
+					"type": "number"
+				},
+				{
+					"name": "parent",
+					"kind": "storage",
+					"scope": "public",
+					"type": "long"
 				}
 			]
 		},
@@ -619,83 +701,6 @@
 					"path": "Group"
 				}
 			]
-		},
-		{
-			"collectionName": "Tasks",
-			"className": "Task",
-			"attributes": [
-				{
-					"name": "ID",
-					"kind": "storage",
-					"type": "long",
-					"autosequence": "true",
-					"unique": "true",
-					"primKey": "true"
-				},
-				{
-					"name": "start_Date",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				},
-				{
-					"name": "text",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				},
-				{
-					"name": "duration",
-					"scope": "public",
-					"type": "long",
-					"kind": "storage"
-				},
-				{
-					"name": "progress",
-					"scope": "public",
-					"type": "number",
-					"kind": "storage"
-				},
-				{
-					"name": "parent",
-					"scope": "public",
-					"type": "long",
-					"kind": "storage"
-				}
-			]
-		},
-		{
-			"collectionName": "LinkCollection",
-			"className": "Link",
-			"attributes": [
-				{
-					"name": "ID",
-					"kind": "storage",
-					"type": "long",
-					"autosequence": "true",
-					"unique": "true",
-					"primKey": "true"
-				},
-				{
-					"name": "source",
-					"scope": "public",
-					"type": "long",
-					"kind": "storage"
-				},
-				{
-					"name": "target",
-					"scope": "public",
-					"type": "long",
-					"kind": "storage"
-				},
-				{
-					"name": "type",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				}
-			]
 		}
-	],
-	"type": []
+	]
 }

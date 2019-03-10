@@ -18,7 +18,7 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": true,
+					"pathVisible": false,
 					"position": {
 						"X": 895,
 						"Y": 41
@@ -95,32 +95,32 @@
 				"panelColor": "#C4BD97",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": true,
+					"pathVisible": false,
 					"position": {
-						"X": 1271,
-						"Y": 40
+						"X": 1310,
+						"Y": 50
 					}
 				}
 			},
-			"Task": {
+			"GanttTask": {
 				"panelColor": "rgb(255, 255, 0)",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": true,
+					"pathVisible": false,
 					"position": {
 						"X": 80,
 						"Y": 925
 					}
 				}
 			},
-			"Link": {
+			"GanttLink": {
 				"panelColor": "rgb(255, 255, 0)",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": true,
+					"pathVisible": false,
 					"position": {
-						"X": 353,
-						"Y": 928
+						"X": 347,
+						"Y": 920
 					}
 				}
 			}
@@ -128,7 +128,7 @@
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 637,
+			"workspaceTop": 759,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -141,6 +141,15 @@
 				},
 				"UserTodoAssign": {
 					"method": "UserTodoAssign/UserTodoAssign-methods.js"
+				},
+				"Group": {
+					"method": "Group/Group-methods.js"
+				},
+				"GanttTask": {
+					"method": "GanttTask/GanttTask-methods.js"
+				},
+				"GanttLink": {
+					"method": "GanttLink/GanttLink-methods.js"
 				}
 			}
 		}
@@ -220,41 +229,10 @@
 			]
 		},
 		{
-			"name": "Group",
-			"className": "Group",
-			"collectionName": "Groups",
-			"scope": "public",
-			"attributes": [
-				{
-					"name": "ID",
-					"kind": "storage",
-					"scope": "public",
-					"unique": true,
-					"autosequence": true,
-					"autogenerate": true,
-					"type": "uuid",
-					"primKey": true
-				},
-				{
-					"name": "name",
-					"kind": "storage",
-					"scope": "public",
-					"type": "string"
-				},
-				{
-					"name": "userGroupCollection",
-					"kind": "relatedEntities",
-					"scope": "public",
-					"type": "UserGroups",
-					"reversePath": true,
-					"path": "group"
-				}
-			]
-		},
-		{
-			"name": "Link",
-			"className": "Link",
-			"collectionName": "LinkCollection",
+			"name": "GanttLink",
+			"className": "GanttLink",
+			"collectionName": "GanttLinks",
+			"matchTable": "Link",
 			"scope": "public",
 			"attributes": [
 				{
@@ -284,12 +262,31 @@
 					"scope": "public",
 					"type": "string"
 				}
+			],
+			"methods": [
+				{
+					"name": "editL",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.GanttLink.entityMethods.editL",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "ganttLinksSource",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.GanttLink.collectionMethods.ganttLinksSource",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				}
 			]
 		},
 		{
-			"name": "Task",
-			"className": "Task",
-			"collectionName": "Tasks",
+			"name": "GanttTask",
+			"className": "GanttTask",
+			"collectionName": "GanttTasks",
+			"matchTable": "Task",
 			"scope": "public",
 			"attributes": [
 				{
@@ -302,10 +299,12 @@
 					"primKey": true
 				},
 				{
-					"name": "start_Date",
+					"name": "start_date",
 					"kind": "storage",
+					"matchColumn": "start_Date",
 					"scope": "public",
-					"type": "string"
+					"type": "date",
+					"simpleDate": true
 				},
 				{
 					"name": "text",
@@ -330,6 +329,86 @@
 					"kind": "storage",
 					"scope": "public",
 					"type": "long"
+				},
+				{
+					"name": "open",
+					"scope": "public",
+					"type": "bool",
+					"kind": "storage"
+				},
+				{
+					"name": "sortOrder",
+					"scope": "public",
+					"type": "long",
+					"kind": "storage"
+				}
+			],
+			"methods": [
+				{
+					"name": "editT",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.GanttTask.entityMethods.editT",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "ganttTasksSource",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.GanttTask.collectionMethods.ganttTasksSource",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				}
+			]
+		},
+		{
+			"name": "Group",
+			"className": "Group",
+			"collectionName": "Groups",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "name",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "userGroupCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "UserGroups",
+					"reversePath": true,
+					"path": "group"
+				}
+			],
+			"methods": [
+				{
+					"name": "addOneUserToGroups",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.Group.collectionMethods.addOneUserToGroups",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "removeOneUserFromGroups",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.Group.collectionMethods.removeOneUserFromGroups",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
 				}
 			]
 		},
@@ -613,10 +692,42 @@
 			],
 			"methods": [
 				{
+					"name": "addOneUserToOneGroup",
+					"applyTo": "entity",
+					"scope": "public",
+					"from": "$mainModel.User.entityMethods.addOneUserToOneGroup",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
 					"name": "addUser",
 					"applyTo": "dataClass",
 					"scope": "public",
 					"from": "$mainModel.User.methods.addUser",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "addUsersToOneGroup",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.User.collectionMethods.addUsersToOneGroup",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "removeOneUserFromOneGroup",
+					"applyTo": "entity",
+					"scope": "public",
+					"from": "$mainModel.User.entityMethods.removeOneUserFromOneGroup",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "removeUsersFromOneGroup",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "$mainModel.User.collectionMethods.removeUsersFromOneGroup",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
 				},
@@ -702,5 +813,6 @@
 				}
 			]
 		}
-	]
+	],
+	"type": []
 }

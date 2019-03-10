@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ILink} from '../models/link';
+import { WakandaService } from '../../shared/wakanda.service';
 import {HttpClient} from '@angular/common/http';
 import {HandleError} from './service-helper';
 
@@ -7,12 +8,29 @@ import {HandleError} from './service-helper';
 export class LinkService {
 	private linkUrl = 'api/links';
 
-	constructor(private http: HttpClient) {}
+	constructor(
+		private wakanda: WakandaService,
+		private http: HttpClient
+		) {}
 
-	get(): Promise<ILink[]> {
-		return this.http.get(this.linkUrl)
-			.toPromise()
-			.catch(HandleError);
+	async getLinkClass() {
+		const ds = await this.wakanda.catalog;
+		return ds.GanttLink;
+		}
+
+	async getLinkAll() : Promise<ILink[]>{
+		const Link = await this.getLinkClass();
+		const res = await Link.query();
+		return res.entities;
+	}
+
+	async get() {
+		//const Link = await this.getLinkClass();
+		const result = await this.getLinkAll();
+		return result;
+		// return this.http.get(this.linkUrl)
+		// 	.toPromise()
+		// 	.catch(HandleError);
 	}
 
 	insert(link: ILink): Promise<ILink> {

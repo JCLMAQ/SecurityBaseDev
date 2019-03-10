@@ -2,8 +2,6 @@
 <solution>
     <project path="./backend/app.waProject"/>
     <project path="./web/app.waProject"/>
-    <project path="./LDAP/app.waProject"/>
-    <project path="./Gantt/app.waProject"/>
 
   <file path="./settings.waSettings">
     <tag name="settings"/>

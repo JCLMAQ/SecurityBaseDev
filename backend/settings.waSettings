@@ -13,10 +13,10 @@
 	<service name="webApp" modulePath="services/webApp" enabled="false" autoStart="true"/>
 	<service name="rpc" modulePath="services/rpc" enabled="true" autoStart="true" proxyPattern="^/rpc-proxy/" publishInClientGlobalNamespace="false"/>
 	<service name="dataStore" modulePath="services/dataStore" enabled="true" autoStart="true"/>
-	<service name="runner" modulePath="services/runner" enabled="false"/>
+	<service name="runner" modulePath="services/runner" enabled="true"/>
 	<service name="upload" modulePath="services/upload" enabled="false" autoStart="true"/>
 	<service name="Print service" modulePath="services/print" enabled="false"/>
-	<service name="Service Example" modulePath="service-example/index" enabled="true"/>
+	<service name="Service Example" modulePath="service-example/index" enabled="false"/>
 	<service name="Backend Test" modulePath="services/test" enabled="true"/>
 	<resources location="/walib/" lifeTime="31536000"/>
 	<javaScript reuseContexts="true"/>

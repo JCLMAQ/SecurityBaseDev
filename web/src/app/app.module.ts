@@ -5,8 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 
-// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { InMemoryDataService } from './gantt/services/in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './gantt/services/in-memory-data.service';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -59,7 +59,7 @@ import { GanttComponent } from './gantt/gantt.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-   // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+   HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     APP_ROUTING
   ],
   entryComponents: [ConfirmComponent],

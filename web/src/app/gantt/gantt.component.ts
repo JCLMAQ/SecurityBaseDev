@@ -25,18 +25,18 @@ export class GanttComponent implements OnInit {
 
 		gantt.init(this.ganttContainer.nativeElement);
 
-		// const dp = gantt.createDataProcessor({
-		// 	task: {
-		// 		update: (data: ITask) => this.taskService.update(data),
-		// 		create: (data: ITask) => this.taskService.insert(data),
-		// 		delete: (id) => this.taskService.remove(id)
-		// 	},
-		// 	link: {
-		// 		update: (data: ILink) => this.linkService.update(data),
-		// 		create: (data: ILink) => this.linkService.insert(data),
-		// 		delete: (id) => this.linkService.remove(id)
-		// 	}
-		// });
+		const dp = gantt.createDataProcessor({
+			task: {
+				update: (data: ITask) => this.taskService.update(data),
+				create: (data: ITask) => this.taskService.insert(data),
+				delete: (id) => this.taskService.remove(id)
+			},
+			link: {
+				update: (data: ILink) => this.linkService.update(data),
+				create: (data: ILink) => this.linkService.insert(data),
+				delete: (id) => this.linkService.remove(id)
+			}
+		});
 
 		Promise.all([this.taskService.get(), this.linkService.get()])
 			.then(([data, links]) => {

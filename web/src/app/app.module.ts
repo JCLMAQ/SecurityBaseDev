@@ -34,6 +34,7 @@ import { UserService } from './shared/user.service';
 import { RegisterService} from './register/register.service';
 import { AuthenticationService } from './shared/authentication.service';
 import { GanttComponent } from './gantt/gantt.component';
+import { CarouselService } from './shared/carousel/carousel.service';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { GanttComponent } from './gantt/gantt.component';
     WakandaService,
     TodoService,
     UserService,
+    CarouselService,
     RegisterService,
     AuthenticationService
   ],

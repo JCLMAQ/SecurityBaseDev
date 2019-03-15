@@ -41,5 +41,12 @@ export interface ITodoType {
   todoTyped:{
     entities:ITodo[];
     fetch(): Promise<ITodo[]>;
-  } 
+  }
+}
+export interface ICaroussel {
+  ID: string;
+  name: string;
+  detail: string;
+  _key?: string;
+  picture: ImageBitmap;
 }

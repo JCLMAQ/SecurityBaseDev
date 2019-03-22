@@ -65,4 +65,8 @@ export class AuthenticationService {
     }
     return this.roles[role];
   }
+
+  async windowsUser() {
+    await this.checkCredentials();
+  }
 }

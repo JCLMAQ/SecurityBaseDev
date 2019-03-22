@@ -16,6 +16,9 @@ export class AppComponent implements OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   currentUser: ICurrentUser;
+
+  currentUserWin: ICurrentUser;
+
   canSeeTodosMenu = false;
   canSeeUsersMenu = false;
 
@@ -35,6 +38,12 @@ export class AppComponent implements OnDestroy {
       )
       .subscribe();
     this.authenticationService.refreshUser();
+  }
+
+  whoislog() {
+  // this.currentUserWin = await authenticationService.windowsUser();
+   //this.currentUserWin = this.authenticationService.checkCredentials();
+   debugger;
   }
 
   async logout() {

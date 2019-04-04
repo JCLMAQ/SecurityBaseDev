@@ -7,7 +7,7 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": false,
+					"pathVisible": true,
 					"position": {
 						"X": 56,
 						"Y": 52
@@ -128,18 +128,18 @@
 				"panelColor": "#548DD4",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
 						"X": 660,
 						"Y": 1034
-					},
-					"pathVisible": true
+					}
 				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 1000,
+			"workspaceTop": 0,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -424,6 +424,48 @@
 			]
 		},
 		{
+			"name": "Picture",
+			"className": "Picture",
+			"collectionName": "Pictures",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "code",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "name",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "detail",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "picture",
+					"kind": "storage",
+					"scope": "public",
+					"type": "image"
+				}
+			]
+		},
+		{
 			"name": "Todo",
 			"className": "Todo",
 			"collectionName": "Todos",
@@ -502,6 +544,12 @@
 					"kind": "storage",
 					"scope": "public",
 					"type": "bool"
+				},
+				{
+					"name": "picture",
+					"scope": "public",
+					"type": "image",
+					"kind": "storage"
 				}
 			],
 			"events": [
@@ -821,45 +869,6 @@
 					"scope": "public",
 					"type": "Group",
 					"path": "Group"
-				}
-			]
-		},
-		{
-			"collectionName": "Pictures",
-			"className": "Picture",
-			"attributes": [
-				{
-					"name": "ID",
-					"kind": "storage",
-					"type": "uuid",
-					"primKey": "true",
-					"autosequence": true,
-					"unique": true,
-					"autogenerate": true
-				},
-				{
-					"name": "code",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				},
-				{
-					"name": "name",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				},
-				{
-					"name": "detail",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				},
-				{
-					"name": "picture",
-					"scope": "public",
-					"type": "image",
-					"kind": "storage"
 				}
 			]
 		}

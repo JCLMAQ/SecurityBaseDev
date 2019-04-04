@@ -2,6 +2,7 @@ export interface ITodo {
   ID: string;
   description: string;
   done: boolean;
+  picture: ImageData;
   _key?: string;
   type: ITodoType;
   users?:{

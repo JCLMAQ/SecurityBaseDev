@@ -6,7 +6,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./file-input.component.css']
 })
 export class FileInputComponent implements OnInit {
-
+/*
+<app-file-input [title]="Photo" (fileChange)="onFileSelected($event)"></app-file-input>
+*/
   @Input() title: string;
   @Output() fileChange = new EventEmitter<File>()
 

@@ -22,6 +22,7 @@ export class TodoDetailsComponent implements OnInit {
   users:IUser[];
   types: ITodoType[] = [];
   selectedTypeTodo: ITodoType;
+  fileInput: File;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +33,8 @@ export class TodoDetailsComponent implements OnInit {
 
  async ngOnInit() {
 
+
+   
   // Get all the "types todo" 
     const TodoType = await this.todoService.getTypesClass();
     const Todo = await this.todoService.getClass();
@@ -67,6 +70,12 @@ export class TodoDetailsComponent implements OnInit {
   }
 
   async save(todo){
+    var fileInput = document.getElementById('fileInput');
+    var file = fileInput.files[0];
+debugger;
+    todo.picture.upload(file).then(function () {
+    //file is uploaded and entity is updated
+    });
     await todo.save();
     this.editable= false;
   //this.router.navigate(["/todos"]);

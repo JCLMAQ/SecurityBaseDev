@@ -32,7 +32,10 @@
         <input  matInput placeholder="Description"
                 type="text" [(ngModel)]="current.description"
                 [disabled]="!editable">
+        <input type="file" id="fileInput">
+        
       </mat-form-field>
+      <img src="fileInput.files[0]" alt="Photo">
       <section class="example-section">
         <mat-checkbox class="example-margin" [(ngModel)]="current.done" [disabled]="!editable">Terminé</mat-checkbox>
         <mat-checkbox class="example-margin" [(ngModel)]="current.public" [disabled]="!editable">Public</mat-checkbox>

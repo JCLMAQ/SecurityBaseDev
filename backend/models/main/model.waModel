@@ -7,7 +7,7 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": true,
+					"pathVisible": false,
 					"position": {
 						"X": 56,
 						"Y": 52

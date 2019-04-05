@@ -20,6 +20,26 @@
           <mat-icon>list</mat-icon>
           Go to list
         </button>
+        <button mat-button *ngIf="editable" (click) = "cancel()">
+          <mat-icon>cancel</mat-icon>
+          Cancel
+        </button>
+        <button mat-button *ngIf="!editable" (click) = "firstOfTheList()">
+          <mat-icon>skip_previous</mat-icon>
+          Premier
+        </button>
+        <button mat-button *ngIf="!editable" (click) = "previousOfTheList()">
+          <mat-icon>navigate_before</mat-icon>
+          Précédent
+        </button>
+        <button mat-button *ngIf="!editable" (click) = "nextOfTheList()">
+          <mat-icon>navigate_next</mat-icon>
+          Suivant
+        </button>
+        <button mat-button *ngIf="!editable" (click) = "lastOfTheList()">
+          <mat-icon>skip_next</mat-icon>
+          Dernier
+        </button>
     </mat-card-actions>
     <mat-card-title>
       Details of the todo

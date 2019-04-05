@@ -128,6 +128,12 @@ export class TodoDetailsComponent implements OnInit {
       debugger;
     }
   }
+
+  previousOfTheList() {}
+  firstOfTheList() {}
+  lastOfTheList() {}
+  nextOfTheList() {}
+
 }
 
 

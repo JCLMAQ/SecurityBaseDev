@@ -22,7 +22,8 @@ export class TodoDetailsComponent implements OnInit {
   users:IUser[];
   types: ITodoType[] = [];
   selectedTypeTodo: ITodoType;
-  fileInput: File;
+  //fileInput: File;
+  //fileInput: HTMLElement;
 
   constructor(
     private route: ActivatedRoute,
@@ -71,7 +72,7 @@ export class TodoDetailsComponent implements OnInit {
 //     var fileInput = document.getElementById('fileInput');
 //     var file = fileInput.files[0];
 //     const files = fileInput.target.files;
- debugger;
+ // debugger;
 //     todo.picture.upload(file).then(function () {
 //     //file is uploaded and entity is updated
 //     });
@@ -118,8 +119,10 @@ export class TodoDetailsComponent implements OnInit {
     await currentTodo.save();
   }
 
- async uploadImage(fileInput: any, currentTodo: ITodo) {
-    const files = fileInput.target.files;
+ async uploadImage(fileInput: HTMLElement, currentTodo: ITodo) {
+    //let fileInput = document.getElementById('fileInput');
+    //const files = fileInput.target.files;
+    let file = fileInput.files[0];
     if(files && files[0]) {
       this.currentTodo.picture.upload(files[0]).then(() => {
         // done

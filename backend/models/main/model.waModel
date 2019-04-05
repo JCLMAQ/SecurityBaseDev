@@ -9,8 +9,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 56,
-						"Y": 52
+						"X": 59,
+						"Y": 26
 					}
 				}
 			},
@@ -547,15 +547,15 @@
 				},
 				{
 					"name": "picture",
+					"kind": "storage",
 					"scope": "public",
-					"type": "image",
-					"kind": "storage"
+					"type": "image"
 				},
 				{
 					"name": "doc",
+					"kind": "storage",
 					"scope": "public",
-					"type": "blob",
-					"kind": "storage"
+					"type": "blob"
 				}
 			],
 			"events": [
@@ -878,6 +878,5 @@
 				}
 			]
 		}
-	],
-	"type": []
+	]
 }

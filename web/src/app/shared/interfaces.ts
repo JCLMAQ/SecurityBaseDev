@@ -2,7 +2,8 @@ export interface ITodo {
   ID: string;
   description: string;
   done: boolean;
-  picture: ImageData;
+  public: boolean;
+  picture: any;
   _key?: string;
   type: ITodoType;
   users?:{

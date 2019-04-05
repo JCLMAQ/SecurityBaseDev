@@ -129,6 +129,8 @@ export class TodoDetailsComponent implements OnInit {
     }
   }
 
+  deletePicture() {}
+
   previousOfTheList() {}
   firstOfTheList() {}
   lastOfTheList() {}

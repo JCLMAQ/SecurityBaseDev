@@ -17,3 +17,9 @@ mat-row{
   align-items: center;
   height: 60px;
 }
+
+.pictimage {
+  width: 200px;
+  height: 200px;
+  object-fit: scale-down;
+}

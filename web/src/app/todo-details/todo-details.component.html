@@ -58,7 +58,14 @@
                         <input (change)="uploadImage($event)" type="file">
                       </div>
       </mat-form-field>
-      <img [src]="currentTodo.picture?.uri" alt="Photo">
+      <mat-card>
+        <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Photo" >
+        <button mat-button *ngIf="editable" (click) = "deletePicture()">
+          <mat-icon>delete</mat-icon>
+          Supprimer
+        </button>
+      </mat-card>
+
       <section class="example-section">
         <mat-checkbox class="example-margin" [(ngModel)]="currentTodo.done" [disabled]="!editable">Terminé</mat-checkbox>
         <mat-checkbox class="example-margin" [(ngModel)]="currentTodo.public" [disabled]="!editable">Public</mat-checkbox>
@@ -82,7 +89,7 @@
       </mat-form-field>
         <br />
 
-      <button class="button btn primary" [disabled]="!editable" (click)="makeMain(currentTodoTodoList, currentTodo)">
+      <button class="button btn primary" [disabled]="!editable" (click)="makeMain(currentTodoList, currentTodo)">
         Affecter la todo comme main todo
       </button>
 
@@ -135,7 +142,7 @@
                   </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="todoCols1"></mat-header-row>
-                <mat-row (click)="currentTodoTodoList = row" [class.selected]="currentTodoTodoList && row.ID === currentTodoTodoList.ID"
+                <mat-row (click)="currentTodoList = row" [class.selected]="currentTodoList && row.ID === currentTodoList.ID"
                     *matRowDef="let row; columns: todoCols1;"></mat-row>
               </mat-table>
             </div>

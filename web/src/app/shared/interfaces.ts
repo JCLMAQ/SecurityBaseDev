@@ -4,6 +4,7 @@ export interface ITodo {
   done: boolean;
   public: boolean;
   picture: any;
+  doc: any;
   _key?: string;
   type: ITodoType;
   users?:{

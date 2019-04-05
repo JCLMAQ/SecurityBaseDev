@@ -71,7 +71,7 @@ export class TodoDetailsComponent implements OnInit {
 //     var fileInput = document.getElementById('fileInput');
 //     var file = fileInput.files[0];
 //     const files = fileInput.target.files;
-// debugger;
+ debugger;
 //     todo.picture.upload(file).then(function () {
 //     //file is uploaded and entity is updated
 //     });
@@ -124,12 +124,27 @@ export class TodoDetailsComponent implements OnInit {
       this.currentTodo.picture.upload(files[0]).then(() => {
         // done
       });
-      await currentTodo.save();
       debugger;
+     // await currentTodo.save();
     }
   }
 
+  async uploadDoc(fileInput: any, currentTodo: ITodo) {
+    const files = fileInput.target.files;
+    if(files && files[0]) {
+      this.currentTodo.doc.upload(files[0]).then(() => {
+        // done
+      });
+      debugger;
+     // await currentTodo.save();
+    }
+  }
+
+  uploadPicture() {}
   deletePicture() {}
+
+  uploadDocument() {}
+  deleteDocument() {}
 
   previousOfTheList() {}
   firstOfTheList() {}

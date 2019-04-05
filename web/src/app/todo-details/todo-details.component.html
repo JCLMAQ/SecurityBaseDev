@@ -52,18 +52,40 @@
         <input  matInput placeholder="Description"
                 type="text" [(ngModel)]="currentTodo.description"
                 [disabled]="!editable">
-        <!-- <input type="file" id="fileInput"> -->
-                      <div class="btn">
-                        <span>Upload image</span>
-                        <input (change)="uploadImage($event)" type="file">
-                      </div>
+
       </mat-form-field>
       <mat-card>
         <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Photo" >
+        <button mat-button *ngIf="editable" (click) = "uploadPicture()">
+          <mat-icon>file_upload</mat-icon>
+          Charger
+        </button>
         <button mat-button *ngIf="editable" (click) = "deletePicture()">
           <mat-icon>delete</mat-icon>
           Supprimer
         </button>
+        <!-- <input type="file" id="fileInput"> -->
+        <div class="btn">
+          <span>Upload image</span>
+          <input (change)="uploadImage($event)" type="file">
+        </div>
+      </mat-card>
+      <br>
+      <mat-card>
+        <img class="pictimage" [src]="currentTodo.doc?.uri" alt="Document" >
+        <button mat-button *ngIf="editable" (click) = "uploadDocument()">
+          <mat-icon>file_upload</mat-icon>
+          Charger
+        </button>
+        <button mat-button *ngIf="editable" (click) = "deleteDocument()">
+          <mat-icon>delete</mat-icon>
+          Supprimer
+        </button>
+        <!-- <input type="file" id="fileInput"> -->
+        <div class="btn">
+          <span>Upload doc</span>
+          <input (change)="uploadDoc($event)" type="file">
+        </div>
       </mat-card>
 
       <section class="example-section">

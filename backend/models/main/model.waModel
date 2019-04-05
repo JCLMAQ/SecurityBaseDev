@@ -7,7 +7,7 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": false,
+					"pathVisible": true,
 					"position": {
 						"X": 56,
 						"Y": 52
@@ -549,6 +549,12 @@
 					"name": "picture",
 					"scope": "public",
 					"type": "image",
+					"kind": "storage"
+				},
+				{
+					"name": "doc",
+					"scope": "public",
+					"type": "blob",
 					"kind": "storage"
 				}
 			],

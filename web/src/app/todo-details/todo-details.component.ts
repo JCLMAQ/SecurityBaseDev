@@ -122,7 +122,7 @@ export class TodoDetailsComponent implements OnInit {
  async uploadImage(fileInput: HTMLElement, currentTodo: ITodo) {
     //let fileInput = document.getElementById('fileInput');
     //const files = fileInput.target.files;
-    let file = fileInput.files[0];
+    let files = fileInput.files[0];
     if(files && files[0]) {
       this.currentTodo.picture.upload(files[0]).then(() => {
         // done

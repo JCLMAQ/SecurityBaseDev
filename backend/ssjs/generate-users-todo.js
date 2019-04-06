@@ -1,8 +1,8 @@
 
   for(let i = 0; i<2; i++){
     let u = new ds.User({
-     email: `User ${i + 1}`,
-      fullName: `user${i+1}`,
+     email: `user${i + 1}@example.com`,
+      fullName: `User ${i+1}`,
       password: `user${i+1}`,
       group: 'users'
     });
@@ -30,5 +30,5 @@
         comments: "second try"
       }).save();
 
-    } 
+    }
   }

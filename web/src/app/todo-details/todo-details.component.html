@@ -55,7 +55,7 @@
 
       </mat-form-field>
       <mat-card>
-        <app-file-input *ngIf="editable" [(ngModel)]="currentTodo.picture" (fileChange)="onFileSelected($event, currentTodo)"></app-file-input>
+        <app-file-input *ngIf="editable" name="file" [(ngModel)]="currentTodo.picture" (fileChange)="onFileSelected($event, currentTodo)"></app-file-input>
 
         <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Photo" >
         <button mat-button *ngIf="editable" (click) = "uploadPicture()">
@@ -69,7 +69,7 @@
         </button>
 
         <!-- <input type="file" id="fileInput"> -->
-        
+
         <div class="btn" *ngIf="editable">
           <span>Upload image</span>
           <input (change)="uploadImage($event)" type="file">

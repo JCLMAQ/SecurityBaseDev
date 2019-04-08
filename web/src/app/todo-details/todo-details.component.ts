@@ -154,7 +154,7 @@ export class TodoDetailsComponent implements OnInit {
   async onFileSelected(file, currentTodo: ITodo) {
     debugger;
 
-    this.currentTodo.picture = file;
+    this.currentTodo.picture.upload(file);
  //   await currentTodo.save();
   }
 

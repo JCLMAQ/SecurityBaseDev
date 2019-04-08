@@ -20,8 +20,8 @@
 					"isOpen": "true",
 					"pathVisible": false,
 					"position": {
-						"X": 895,
-						"Y": 41
+						"X": 978,
+						"Y": 44
 					}
 				}
 			},
@@ -138,8 +138,8 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 0,
-			"workspaceTop": 0,
+			"workspaceLeft": 560,
+			"workspaceTop": 200,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",

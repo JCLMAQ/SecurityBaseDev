@@ -30,6 +30,7 @@ import { ConfirmComponent } from './shared/confirm/confirm.component';
 import { SignupComponent } from './signup/signup.component';
 import {CarouselComponent} from './shared/carousel/carousel.component';
 
+import { FileInputComponent } from './shared/file-input/file-input.component';
 
 import { WakandaService } from './shared/wakanda.service';
 import { TodoService } from './shared/todo.service';
@@ -56,7 +57,9 @@ import { CarouselService } from './shared/carousel/carousel.service';
     UsersComponent,
     SignupComponent,
     CarouselComponent,
-    GanttComponent
+    GanttComponent,
+    FileInputComponent
+
   ],
   imports: [
     BrowserModule,

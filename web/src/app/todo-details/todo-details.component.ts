@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { ITodo, IUser, ITodoType } from "../shared/interfaces";
+import { ITodo, IUser, ITodoType } from '../shared/interfaces';
+
+// import { FileInputComponent } from '../shared/file-input/file-input.component';
 
 import { TodoService } from '../shared/todo.service';
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
@@ -24,6 +26,7 @@ export class TodoDetailsComponent implements OnInit {
   selectedTypeTodo: ITodoType;
   //fileInput: File;
   //fileInput: HTMLElement;
+  files: any = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -119,7 +122,8 @@ export class TodoDetailsComponent implements OnInit {
     await currentTodo.save();
   }
 
-  async uploadImage(fileInput: HTMLInputElement, currentTodo: ITodo) {
+  uploadImage(fileInput: HTMLInputElement) {
+    debugger;
     //let fileInput = document.getElementById('fileInput');
     //const files = fileInput.target.files;
     const files = fileInput.files[0];
@@ -133,14 +137,23 @@ export class TodoDetailsComponent implements OnInit {
   }
 
   async uploadDoc(fileInput: any, currentTodo: ITodo) {
+    debugger;
+
     const files = fileInput.target.files;
     if (files && files[0]) {
       this.currentTodo.doc.upload(files[0]).then(() => {
         // done
       });
-      debugger;
+
       // await currentTodo.save();
     }
+  }
+
+  async onFileSelected(file, currentTodo: ITodo) {
+    debugger;
+
+    this.currentTodo.picture = file;
+ //   await currentTodo.save();
   }
 
   uploadPicture() { }

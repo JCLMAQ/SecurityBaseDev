@@ -4,6 +4,9 @@ import { ModuleWithProviders, Provider } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import { ChangepwdComponent } from './changepwd/changepwd.component';
+import { YourprofilComponent } from './yourprofil/yourprofil.component';
+
 // import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 import {IsTodoPageGuard, IsAdminGuard} from './shared/guard.service';
 
@@ -45,7 +48,9 @@ const APP_ROUTES: Routes = [{
   path: 'gantt',
   component: GanttComponent
   //canActivate: [IsAdminGuard],
-} ];
+},
+{ path: 'changepwd', component: ChangepwdComponent },
+{ path: 'yourprofil', component: YourprofilComponent } ];
 
 export const APP_ROUTING_PROVIDERS: Provider[] = [
   IsTodoPageGuard,

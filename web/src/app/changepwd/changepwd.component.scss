@@ -1,0 +1,30 @@
+.changepwd-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  
+  .changepwd-container > * {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  .card-login {
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    margin-top: 20px;
+    }
+  
+  mat-card-title {
+    text-align: center;
+  }
+  
+  mat-card-actions {
+    text-align: center;
+  }
+  
+  .button {
+    background-color: #114586;
+  }

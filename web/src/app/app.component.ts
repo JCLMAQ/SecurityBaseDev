@@ -55,4 +55,14 @@ export class AppComponent implements OnDestroy {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+
+  changepwd() {
+    // await this.changePwdService.changePassword();
+    this.router.navigate(['changepwd']);
+  }
+
+  yourprofil() {
+    // await this.changePwdService.changePassword();
+    this.router.navigate(['yourprofil']);
+  }
 }

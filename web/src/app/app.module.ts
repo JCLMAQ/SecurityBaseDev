@@ -22,6 +22,9 @@ import { UsersComponent } from './users/users.component';
 
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import { ChangepwdComponent } from './changepwd/changepwd.component';
+import { YourprofilComponent } from './yourprofil/yourprofil.component';
+
 import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 import { SignupComponent } from './signup/signup.component';
@@ -32,6 +35,7 @@ import { WakandaService } from './shared/wakanda.service';
 import { TodoService } from './shared/todo.service';
 import { UserService } from './shared/user.service';
 import { RegisterService} from './register/register.service';
+import { ChangePwdService } from './changepwd/changepwd.service';
 import { AuthenticationService } from './shared/authentication.service';
 import { GanttComponent } from './gantt/gantt.component';
 import { CarouselService } from './shared/carousel/carousel.service';
@@ -47,6 +51,8 @@ import { CarouselService } from './shared/carousel/carousel.service';
     ConfirmComponent,
     LoginComponent,
     RegisterComponent,
+    ChangepwdComponent,
+    YourprofilComponent,
     UsersComponent,
     SignupComponent,
     CarouselComponent,
@@ -71,6 +77,7 @@ import { CarouselService } from './shared/carousel/carousel.service';
     UserService,
     CarouselService,
     RegisterService,
+    ChangePwdService,
     AuthenticationService
   ],
   bootstrap: [AppComponent]

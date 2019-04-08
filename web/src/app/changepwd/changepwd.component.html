@@ -1,0 +1,31 @@
+<mat-card class="card-login">
+
+  <mat-card-title>
+    Changement de mot de passe
+  </mat-card-title>
+
+  <mat-card-content>
+    <form  #form="ngForm" class="changepwd-container">
+      <mat-form-field>
+          <input name="oldpassword" required matInput [(ngModel)]="pwdChange.oldPassword" type="password" placeholder="Votre mot de passe actuel">
+      </mat-form-field>
+      <mat-form-field>
+          <input name="newpassword" required matInput [(ngModel)]="pwdChange.newPassword" type="password" placeholder="Votre nouveau mot de passe">
+        </mat-form-field>
+      <mat-form-field>
+        <input name="verifypassword" required matInput [(ngModel)]="pwdChange.verifyPassword" type="password" placeholder=" Ré-encoder votre nouveau mot de passe">
+      </mat-form-field>
+
+
+      <button class="button" mat-raised-button color="primary" type="submit" (click)="changepwd(pwdChange)" [disabled]="form.invalid">
+        Valider le changement de mot de passe
+      </button>
+<br>
+      <button mat-button type="submit" (click)="backhome()" >
+        <mat-icon>cancel_presentation</mat-icon>
+      </button>
+
+    </form>
+  </mat-card-content>
+
+</mat-card>

@@ -39,10 +39,32 @@
     <button mat-icon-button [matMenuTriggerFor]="submenu">
       <mat-icon>more_vert</mat-icon>
     </button>
-  
+
     <mat-menu #submenu="matMenu">
-      <button mat-menu-item>Item 1</button>
-      <button mat-menu-item>Item 2</button>
+      <button mat-menu-item *ngIf="!currentUser" routerLink="login">
+        <!-- <mat-icon style="margin-right: 10px; font-size: 1.5em;">file_upload</mat-icon> -->
+        <span style="margin-right: 10px; font-size: 1.5em;">
+          <i class="fas fa-sign-in-alt"></i>
+        </span>
+        <span>Login</span>
+      </button>
+      <button mat-menu-item *ngIf="currentUser" (click)="logout()">
+        <span style="margin-right: 10px; font-size: 1.5em;">
+            <i class="fas fa-sign-out-alt"></i>
+          </span>
+        <span>Logout</span>
+      </button>
+      <button mat-menu-item *ngIf="currentUser" (click)="changepwd()">
+        <mat-icon style="margin-right: 10px;">vpn_key</mat-icon>
+        <!-- <mat-icon style="margin-right: 10px; color:blue;">vpn_key</mat-icon> -->
+        <span>Changement de mot de passe</span>
+      </button>
+      <button mat-menu-item *ngIf="currentUser" (click)="yourprofil()">
+          <span style="margin-right: 10px; font-size: 1.5em;">
+              <i class="fas fa-id-card"></i>
+            </span>
+        <span>Votre profil</span>
+      </button>
     </mat-menu>
   </mat-toolbar>
 

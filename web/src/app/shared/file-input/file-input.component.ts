@@ -48,7 +48,6 @@ export class FileInputComponent implements OnInit {
   fileSelected(event) {
     let file = event.srcElement.files[0];
     this.file = file;
-debugger;
     this.fileChange.emit(file);
   }
 }

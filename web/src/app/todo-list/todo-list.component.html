@@ -48,6 +48,15 @@
             </mat-cell>
           </ng-container>
 
+          <ng-container matColumnDef="picture">
+            <mat-header-cell *matHeaderCellDef>Picture</mat-header-cell>
+            <mat-cell *matCellDef="let one">
+                    <img *ngIf="one.picture?.uri != null" [src]="one.picture?.uri" alt="Photo" >
+                
+              <!-- <img [src]="getImageURL()" (click)="previewImage()"> -->
+            </mat-cell>
+          </ng-container>
+
           <!-- <ng-container matColumnDef="chips">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Chips test</mat-header-cell>
             <mat-cell *matCellDef="let one">

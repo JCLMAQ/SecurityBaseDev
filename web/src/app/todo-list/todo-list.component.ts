@@ -27,7 +27,7 @@ export class TodoListComponent {
 
 // ngOnInit() {};
 
-  cols: string[] = ['description', 'done', 'public', 'tools'];
+  cols: string[] = ['description', 'done', 'public', 'picture', 'tools'];
   todos: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
   currentTodo: ITodo;
   countTodo: number = 0;
@@ -184,4 +184,13 @@ navigate(id) {
     }
     this.select(todo);
   };
+
+  // getImageURL(todo) {
+  //   return ('http://127.0.0.1:8081' + '/' + todo.picture.uri).replace(/([^:]\/)\/+/g, "$1");
+  // };
+
+  previewImage() {
+   // this.store.dispatch(new layout.ShowImage(this.getImageURL()));
+  };
+
 }

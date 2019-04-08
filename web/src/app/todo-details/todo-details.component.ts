@@ -124,8 +124,8 @@ export class TodoDetailsComponent implements OnInit {
 
   uploadImage() {
    // uploadImage(fileInput: HTMLInputElement) {
-    debugger;
-    let fileInput = document.getElementById('fileInput');
+
+   // let fileInput = document.getElementById('fileInput');
     //const files = fileInput.target.files;
     //const file = fileInput.files[0];
     // if (files && files[0]) {
@@ -133,13 +133,12 @@ export class TodoDetailsComponent implements OnInit {
      //   this.currentTodo.picture.upload(files[0]).then(() => {
         // done
     // });
-      debugger;
+
       // await currentTodo.save();
     //}
   }
 
   async uploadDoc(fileInput: any, currentTodo: ITodo) {
-    debugger;
 
     const files = fileInput.target.files;
     if (files && files[0]) {
@@ -158,8 +157,16 @@ export class TodoDetailsComponent implements OnInit {
  //   await currentTodo.save();
   }
 
+ deletePicture(currentTodo: ITodo) { 
+   // Add confirmation windows here
+    this.currentTodo.picture = null;
+
+  }
+  previewImage() {};
+
+  
   uploadPicture() { }
-  deletePicture() { }
+
 
   uploadDocument() { }
   deleteDocument() { }

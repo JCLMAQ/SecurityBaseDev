@@ -122,18 +122,20 @@ export class TodoDetailsComponent implements OnInit {
     await currentTodo.save();
   }
 
-  uploadImage(fileInput: HTMLInputElement) {
+  uploadImage() {
+   // uploadImage(fileInput: HTMLInputElement) {
     debugger;
-    //let fileInput = document.getElementById('fileInput');
+    let fileInput = document.getElementById('fileInput');
     //const files = fileInput.target.files;
-    const files = fileInput.files[0];
-    if (files && files[0]) {
-      this.currentTodo.picture.upload(files[0]).then(() => {
+    //const file = fileInput.files[0];
+    // if (files && files[0]) {
+     // this.currentTodo.picture.upload(file).then(() => {
+     //   this.currentTodo.picture.upload(files[0]).then(() => {
         // done
-      });
+    // });
       debugger;
       // await currentTodo.save();
-    }
+    //}
   }
 
   async uploadDoc(fileInput: any, currentTodo: ITodo) {

@@ -14,6 +14,7 @@
 	</group>
 	<group ID="4BF8C9B5398E48D2BD6F5868707C3BC7" name="Super">
 		<include user="super" ID="7BCF0132A40241A49106364FA28C599B"/>
+		<include group="Internal" groupID="787D4FE1EC196142B0E0E6BD98691D0E"/>
 	</group>
 	<group ID="849B240CBFF94060AC717C3EA8FE118D" name="usersTodo">
 		<include group="Admin" groupID="01000000000000000000000000000000"/>
@@ -22,4 +23,5 @@
 		<include user="jcm" ID="41C89912B00440B3BF0A1C5E4479BFEA"/>
 		<include group="Admin" groupID="01000000000000000000000000000000"/>
 	</group>
+	<group ID="787D4FE1EC196142B0E0E6BD98691D0E" name="Internal"/>
 </directory>

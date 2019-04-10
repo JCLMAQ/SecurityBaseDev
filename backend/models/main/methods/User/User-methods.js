@@ -54,6 +54,7 @@ model.User.methods.addUser = function(signUpData) {
 		//Check if the password is at least 7 characters and one digit.
 		if (signUpData.password !== null) {
 			passwordRegexStr = /[0-9a-zA-Z]{5,}/;
+	//		passwordRegexStr = /^(?=.*\d)[a-zA-Z\d]{5,}$/;
 			isValid = passwordRegexStr.test(signUpData.password);
 			if (!isValid) {
 				return {error: 8025, errorMessage: "Password must be at least 5 characters."};
@@ -112,24 +113,26 @@ model.User.entityMethods.validatePassword = function(password) {
 model.User.methods.modifyPassword = function(changePasswObject) {
 // Modify password class methods
     var passwordRegexStr, isValid;
-    var sessionRef = currentSession(); // Get session.
+    var sessionRef = directory.currentSession; // Get session.
+  //  var sessionRef = directory.currentSession(); // Get session.
     var promoteToken = sessionRef.promoteWith("Internal"); //temporarily make this session Internal level.
     //Find the User entity for the current user.
-    var myCurrentUser = currentUser(); // we get the user of the current session.
+    var myCurrentUser = directory.currentUser; // we get the user of the current session.
     var myUser = ds.User.find("ID = :1", myCurrentUser.ID);
     if ((myCurrentUser !== null) && (myUser !== null)) { //if a user is logged in.
         if (myUser.validatePassword(changePasswObject.oldPassword)) { // Old Password is the rigth one
-            if (changePasswObject.newPassword === changePasswObject.newPasswordAgain) {
+            if (changePasswObject.newPassword === changePasswObject.newPasswordAgain) { // newPasswordAgain
                 //Check if the password is at least 7 characters and one digit.
-                /*
+                
 					if (changePasswObject.newPassword !== null) {
-						passwordRegexStr = /^(?=.*\d)[a-zA-Z\d]{7,}$/;
+						passwordRegexStr = /[0-9a-zA-Z]{5,}/;
+						// passwordRegexStr = /^(?=.*\d)[a-zA-Z\d]{5,}$/;
 						isValid = passwordRegexStr.test(changePasswObject.newPassword);
 						if (!isValid) {
-							return {error: 8025, errorMessage: "Invalid password. Password must be at least 7 characters."};
+							return {error: 8025, errorMessage: "Votre mot de passe n'est pas valide (il doit avoir au minimum 5 caractères)."};
 						}
 					}
-					*/
+				
                 myUser.password = changePasswObject.newPassword;
                 try {
                     myUser.save(); //Save the entity.

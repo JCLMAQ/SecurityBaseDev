@@ -1,3 +1,4 @@
+
 exports.writeSession = (session) => {
   if (session.storage.ID) {
     const storage = session.storage;

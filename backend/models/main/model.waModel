@@ -18,7 +18,7 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": false,
+					"pathVisible": true,
 					"position": {
 						"X": 978,
 						"Y": 44
@@ -134,12 +134,23 @@
 						"Y": 1034
 					}
 				}
+			},
+			"Session": {
+				"panelColor": "#4FA997",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 106,
+						"Y": 1314
+					}
+				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 560,
-			"workspaceTop": 200,
+			"workspaceLeft": 884,
+			"workspaceTop": 0,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -161,6 +172,10 @@
 				},
 				"GanttLink": {
 					"method": "GanttLink/GanttLink-methods.js"
+				},
+				"Session": {
+					"method": "Session/Session-methods.js",
+					"events": "Session/Session-events.js"
 				}
 			}
 		}
@@ -466,6 +481,61 @@
 			]
 		},
 		{
+			"name": "Session",
+			"className": "Session",
+			"collectionName": "Sessions",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "expires",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "created",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "meta",
+					"kind": "storage",
+					"scope": "public",
+					"type": "object"
+				}
+			],
+			"events": [
+				{
+					"kind": "init",
+					"from": "$mainModel.Session.events.init",
+					"userDefined": true
+				}
+			],
+			"methods": [
+				{
+					"name": "getSession",
+					"applyTo": "dataClass",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Session.methods.getSession",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				}
+			]
+		},
+		{
 			"name": "Todo",
 			"className": "Todo",
 			"collectionName": "Todos",
@@ -736,7 +806,7 @@
 				{
 					"name": "roles",
 					"kind": "storage",
-					"matchColumn": "role",
+					"matchColumn": "role, roles, role",
 					"scope": "public",
 					"type": "string"
 				},
@@ -777,6 +847,14 @@
 					"applyTo": "entityCollection",
 					"scope": "public",
 					"from": "$mainModel.User.collectionMethods.addUsersToOneGroup",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
+				{
+					"name": "modifyPassword",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.User.methods.modifyPassword",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
 				},
@@ -878,5 +956,6 @@
 				}
 			]
 		}
-	]
+	],
+	"type": []
 }

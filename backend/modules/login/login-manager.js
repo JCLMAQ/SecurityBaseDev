@@ -32,12 +32,12 @@ if(username!="" && password=="") {
 		    };
 		  }
 		  
-		  const roles;
+			var roles;
 		  if(u.roles === null) {
 		  	roles = "BasicUsers"
-		  } else {
-		  	roles = u.roles ? u.roles.split(',') : [];
 		  }
+	
+		  roles = u.roles ? u.roles.split(',') : [];
 		  
 		  return {
 		    ID: u.getKey(),

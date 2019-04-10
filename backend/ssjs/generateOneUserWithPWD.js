@@ -1,1 +1,1 @@
-let unew= new ds.User({	fullName: 'JCM',	email: 'jcm@jcm.be',	password: 'jcm12345',	group: 'TodosPage',	role: 'BasicUsers'});try {      unew.save();    } catch (e) { }    const u = ds.User.find('email == :1', 'jcm');
+let unew= new ds.User({	fullName: 'JCM',	email: 'jcl@moi.be',	password: '12345',	roles: 'Admin',});try {      unew.save();    } catch (e) { }    const u = ds.User.find('email == :1', 'jcm');

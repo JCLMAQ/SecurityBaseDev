@@ -35,7 +35,7 @@
     "dhtmlx-gantt": "^6.1.1",
     "hammerjs": "^2.0.8",
     "rxjs": "^6.4.0",
-    "wakanda-client": "^2.0.0",
+    "wakanda-client": "git+https://git@github.com/wakanda/wakanda-javascript-client.git#feature/databrowser-requirements",
     "zone.js": "^0.8.29",
     "acorn": "^6.1.1"
   },

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
@@ -27,12 +28,14 @@ export class TodoDetailsComponent implements OnInit {
   //fileInput: File;
   files: HTMLInputElement;
   //files: any = {};
+  url: SafeResourceUrl;
 
   constructor(
     private route: ActivatedRoute,
     private todoService: TodoService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   async ngOnInit() {
@@ -149,6 +152,7 @@ export class TodoDetailsComponent implements OnInit {
   //     // await currentTodo.save();
   //   }
   // }
+
 
   async onPictureSelected(file, currentTodo: ITodo) {
     this.currentTodo.picture.upload(file);

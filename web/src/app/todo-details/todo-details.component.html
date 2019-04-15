@@ -54,6 +54,24 @@
                 [disabled]="!editable">
 
       </mat-form-field>
+      <!-- <mat-card>
+        <mat-card-actions>
+           <input type="file" id="fileInput"> 
+          <form method="post" enctype="multipart/form-data">
+            <div>
+              <label for="file">Sélectionner le fichier à télécharger</label>
+              <input type="file" id="file" name="file">
+            </div>
+            <div>
+              <button (click)="downloadFile()">Submit</button>
+            </div>
+          </form>
+        </mat-card-actions>
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card> -->
+<br>
       <mat-card>
         <mat-card-actions>
           <app-file-input *ngIf="editable" name="filepicture"
@@ -94,15 +112,7 @@
           <iframe [srcdoc]="currentTodo.doc?.uri" height="400" width="300" ></iframe>
         </mat-card-content>
       </mat-card>
-      <mat-card>
-          <mat-card-actions>
-            <!-- <input type="file" id="fileInput"> -->
-          </mat-card-actions>
-          <mat-card-content>
-
-          </mat-card-content>
-      </mat-card>
-
+      
       <section class="example-section">
         <mat-checkbox class="example-margin" [(ngModel)]="currentTodo.done" [disabled]="!editable">Terminé</mat-checkbox>
         <mat-checkbox class="example-margin" [(ngModel)]="currentTodo.public" [disabled]="!editable">Public</mat-checkbox>

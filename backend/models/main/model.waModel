@@ -149,7 +149,7 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 884,
+			"workspaceLeft": 0,
 			"workspaceTop": 0,
 			"lastScriptLocation": {
 				"User": {
@@ -625,7 +625,14 @@
 					"name": "doc",
 					"kind": "storage",
 					"scope": "public",
-					"type": "blob"
+					"type": "image"
+				},
+				{
+					"name": "docName",
+					"kind": "storage",
+					"matchColumn": "document",
+					"scope": "public",
+					"type": "string"
 				}
 			],
 			"events": [
@@ -650,6 +657,14 @@
 				}
 			],
 			"methods": [
+				{
+					"name": "getDoc",
+					"applyTo": "entity",
+					"scope": "public",
+					"from": "$mainModel.Todo.entityMethods.getDoc",
+					"allowedOnHTTPGET": false,
+					"userDefined": true
+				},
 				{
 					"name": "getUsers",
 					"applyTo": "entity",
@@ -806,7 +821,7 @@
 				{
 					"name": "roles",
 					"kind": "storage",
-					"matchColumn": "role, roles, role",
+					"matchColumn": "role,roles,role",
 					"scope": "public",
 					"type": "string"
 				},
@@ -956,6 +971,5 @@
 				}
 			]
 		}
-	],
-	"type": []
+	]
 }

@@ -25,8 +25,8 @@ export class TodoDetailsComponent implements OnInit {
   types: ITodoType[] = [];
   selectedTypeTodo: ITodoType;
   //fileInput: File;
-  //fileInput: HTMLElement;
-  files: any = {};
+  files: HTMLInputElement;
+  //files: any = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -122,54 +122,81 @@ export class TodoDetailsComponent implements OnInit {
     await currentTodo.save();
   }
 
-  uploadImage() {
-   // uploadImage(fileInput: HTMLInputElement) {
+  // uploadImage() {
+  //  // uploadImage(fileInput: HTMLInputElement) {
 
-   // let fileInput = document.getElementById('fileInput');
-    //const files = fileInput.target.files;
-    //const file = fileInput.files[0];
-    // if (files && files[0]) {
-     // this.currentTodo.picture.upload(file).then(() => {
-     //   this.currentTodo.picture.upload(files[0]).then(() => {
-        // done
-    // });
+  //  // let fileInput = document.getElementById('fileInput');
+  //   //const files = fileInput.target.files;
+  //   //const file = fileInput.files[0];
+  //   // if (files && files[0]) {
+  //    // this.currentTodo.picture.upload(file).then(() => {
+  //    //   this.currentTodo.picture.upload(files[0]).then(() => {
+  //       // done
+  //   // });
 
-      // await currentTodo.save();
-    //}
-  }
+  //     // await currentTodo.save();
+  //   //}
+  // }
 
-  async uploadDoc(fileInput: any, currentTodo: ITodo) {
+  // async uploadDoc(fileInput: any, currentTodo: ITodo) {
 
-    const files = fileInput.target.files;
-    if (files && files[0]) {
-      this.currentTodo.doc.upload(files[0]).then(() => {
-        // done
-      });
+  //   const files = fileInput.target.files;
+  //   if (files && files[0]) {
+  //     this.currentTodo.doc.upload(files[0]).then(() => {
+  //       // done
+  //     });
 
-      // await currentTodo.save();
-    }
-  }
+  //     // await currentTodo.save();
+  //   }
+  // }
 
-  async onFileSelected(file, currentTodo: ITodo) {
-    debugger;
-
+  async onPictureSelected(file, currentTodo: ITodo) {
     this.currentTodo.picture.upload(file);
  //   await currentTodo.save();
   }
 
- deletePicture(currentTodo: ITodo) { 
+ async deletePicture(currentTodo: ITodo) {
    // Add confirmation windows here
     this.currentTodo.picture = null;
-
+    await currentTodo.save();
   }
-  previewImage() {};
 
-  
-  uploadPicture() { }
+  async onDocSelected(file, currentTodo: ITodo) {
+    this.currentTodo.doc.upload(file);
+ //   await currentTodo.save();
+  }
+ async deleteDocument(currentTodo: ITodo) {
+    // Add confirmation windows here
+    this.currentTodo.doc = null;
+    await currentTodo.save();
+   }
 
 
-  uploadDocument() { }
-  deleteDocument() { }
+   downloadFile(input) {
+
+    }
+
+  //  uploadDoc() {
+  //  // var fichierSelectionne = document.getElementById('inputFile').files[0];
+  //  }
+
+  //  handleFiles(file: File) {
+  //     debugger;
+  //     let files = file;
+  //  }
+
+  //  getImageURL(currentTodo: ITodo) {
+  //    debugger;
+  //   return ('localhost:4500' + '/' + currentTodo.picture.uri).replace(/([^:]\/)\/+/g, "$1");
+  // }
+
+  // getBlobURL(currentTodo: ITodo) {
+  //   return ('localhost:4500' + '/' + currentTodo.doc.uri).replace(/([^:]\/)\/+/g, "$1");
+  // }
+
+  // previewImage(currentTodo: ITodo) {
+  //   this.getImageURL(currentTodo);
+  // }
 
   previousOfTheList() { }
   firstOfTheList() { }

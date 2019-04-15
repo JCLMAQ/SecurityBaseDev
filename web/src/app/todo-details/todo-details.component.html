@@ -56,52 +56,51 @@
       </mat-form-field>
       <mat-card>
         <mat-card-actions>
-          <app-file-input *ngIf="editable" name="filepicture" [(ngModel)]="currentTodo.picture" (fileChange)="onFileSelected($event, currentTodo)"></app-file-input>
-          <button mat-icon-button routerLink="">
-            <mat-icon>remove_red_eye</mat-icon>
-          </button>
+          <app-file-input *ngIf="editable" name="filepicture"
+            [(ngModel)]="currentTodo.picture"
+            (fileChange)="onPictureSelected($event, currentTodo)">
+          </app-file-input>
           <button mat-button *ngIf="editable" (click) = "deletePicture(currentTodo)">
             <mat-icon>delete</mat-icon>
             Supprimer
           </button>
         </mat-card-actions>
         <mat-card-content>
-          <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Photo" (click)="previewImage()">
+            <a [href]="currentTodo.picture?.uri" target="_blank">
+                <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Photo">
+                <!-- <mat-icon>remove_red_eye</mat-icon> -->
+            </a>
+          <!-- <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Photo" (click)="previewImage(currentTodo)">
+          <iframe [src]="currentTodo.picture?.uri" height="400" width="300" ></iframe> -->
         </mat-card-content>
-        
-
-        
-
-        <!-- <button mat-button *ngIf="editable" (click) = "uploadPicture()">
-          <mat-icon>file_upload</mat-icon>
-          Charger
-        </button> -->
-
-        
-
-        <!-- <input type="file" id="fileInput"> -->
-
-        <!-- <div class="btn" *ngIf="editable">
-          <span>Upload image</span>
-          <input (change)="uploadImage($event)" type="file">
-        </div> -->
       </mat-card>
       <br>
       <mat-card>
-        <img class="pictimage" [src]="currentTodo.doc?.uri" alt="Document" >
-        <button mat-button *ngIf="editable" (click) = "uploadDocument()">
-          <mat-icon>file_upload</mat-icon>
-          Charger
-        </button>
-        <button mat-button *ngIf="editable" (click) = "deleteDocument()">
-          <mat-icon>delete</mat-icon>
-          Supprimer
-        </button>
-        <!-- <input type="file" id="fileInput"> -->
-        <div class="btn" *ngIf="editable">
-          <span>Upload doc</span>
-          <input (change)="uploadDoc($event)" type="file">
-        </div>
+        <mat-card-actions>
+          <app-file-input *ngIf="editable" name="filedoc"
+              [(ngModel)]="currentTodo.doc"
+              (fileChange)="onDocSelected($event, currentTodo)">
+          </app-file-input>
+          <a [href]="currentTodo.doc?.uri" target="_blank">
+              <mat-icon>remove_red_eye</mat-icon>
+          </a>
+          <button mat-button *ngIf="editable" (click) = "deleteDocument(currentTodo)">
+              <mat-icon>delete</mat-icon>
+              Supprimer
+          </button>
+        </mat-card-actions>
+        <mat-card-content>
+          <img class="pictimage" [src]="currentTodo.doc?.uri" alt="Document" >
+          <iframe [srcdoc]="currentTodo.doc?.uri" height="400" width="300" ></iframe>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+          <mat-card-actions>
+            <!-- <input type="file" id="fileInput"> -->
+          </mat-card-actions>
+          <mat-card-content>
+
+          </mat-card-content>
       </mat-card>
 
       <section class="example-section">

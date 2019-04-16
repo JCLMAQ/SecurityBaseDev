@@ -145,12 +145,23 @@
 						"Y": 1314
 					}
 				}
+			},
+			"DocFile": {
+				"panelColor": "#8DB3E2",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 365,
+						"Y": 1170
+					},
+					"pathVisible": true
+				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 0,
-			"workspaceTop": 0,
+			"workspaceLeft": 330,
+			"workspaceTop": 1010,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -970,6 +981,35 @@
 					"path": "Group"
 				}
 			]
+		},
+		{
+			"collectionName": "DocFiles",
+			"className": "DocFile",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "uuid",
+					"primKey": "true",
+					"autosequence": true,
+					"unique": true,
+					"autogenerate": true
+				},
+				{
+					"name": "docFile",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				},
+				{
+					"name": "docName",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
+				}
+			],
+			"matchTable": "File, Document"
 		}
-	]
+	],
+	"type": []
 }

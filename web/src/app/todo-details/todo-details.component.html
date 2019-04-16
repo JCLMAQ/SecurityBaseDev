@@ -54,23 +54,15 @@
                 [disabled]="!editable">
 
       </mat-form-field>
-      <!-- <mat-card>
+      <mat-card>
         <mat-card-actions>
-           <input type="file" id="fileInput"> 
-          <form method="post" enctype="multipart/form-data">
-            <div>
-              <label for="file">Sélectionner le fichier à télécharger</label>
-              <input type="file" id="file" name="file">
-            </div>
-            <div>
-              <button (click)="downloadFile()">Submit</button>
-            </div>
-          </form>
+           <input type="file" id="fileInput" (change)="onFileSelected($event)"> 
+            <button type="button" (click)="onUpload()">Upload</button>
         </mat-card-actions>
         <mat-card-content>
 
         </mat-card-content>
-    </mat-card> -->
+    </mat-card>
 <br>
       <mat-card>
         <mat-card-actions>

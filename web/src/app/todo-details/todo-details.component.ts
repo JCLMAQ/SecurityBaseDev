@@ -5,12 +5,14 @@ import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ITodo, IUser, ITodoType } from '../shared/interfaces';
+import { HttpClient}  from '@angular/common/http';
 
 // import { FileInputComponent } from '../shared/file-input/file-input.component';
 
 import { TodoService } from '../shared/todo.service';
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
 import { UserService } from '../shared/user.service';
+//import HttpClient from 'wakanda-client/dist/data-access/http/http-client';
 
 @Component({
   selector: 'app-todo-details',
@@ -25,6 +27,9 @@ export class TodoDetailsComponent implements OnInit {
   users: IUser[];
   types: ITodoType[] = [];
   selectedTypeTodo: ITodoType;
+
+  selectedFile:File = null;
+
   //fileInput: File;
   files: HTMLInputElement;
   //files: any = {};
@@ -35,6 +40,7 @@ export class TodoDetailsComponent implements OnInit {
     private todoService: TodoService,
     private userService: UserService,
     private router: Router,
+    private http: HttpClient,
     private sanitizer: DomSanitizer
   ) { }
 
@@ -124,36 +130,7 @@ export class TodoDetailsComponent implements OnInit {
     currentTodo.type = type;
     await currentTodo.save();
   }
-
-  // uploadImage() {
-  //  // uploadImage(fileInput: HTMLInputElement) {
-
-  //  // let fileInput = document.getElementById('fileInput');
-  //   //const files = fileInput.target.files;
-  //   //const file = fileInput.files[0];
-  //   // if (files && files[0]) {
-  //    // this.currentTodo.picture.upload(file).then(() => {
-  //    //   this.currentTodo.picture.upload(files[0]).then(() => {
-  //       // done
-  //   // });
-
-  //     // await currentTodo.save();
-  //   //}
-  // }
-
-  // async uploadDoc(fileInput: any, currentTodo: ITodo) {
-
-  //   const files = fileInput.target.files;
-  //   if (files && files[0]) {
-  //     this.currentTodo.doc.upload(files[0]).then(() => {
-  //       // done
-  //     });
-
-  //     // await currentTodo.save();
-  //   }
-  // }
-
-
+  
   async onPictureSelected(file, currentTodo: ITodo) {
     this.currentTodo.picture.upload(file);
  //   await currentTodo.save();
@@ -175,33 +152,16 @@ export class TodoDetailsComponent implements OnInit {
     await currentTodo.save();
    }
 
+   onFileSelected(event) {
+    console.log(event);
+    this.selectedFile = <File>event.target.files[0];
+  }
 
-   downloadFile(input) {
-
-    }
-
-  //  uploadDoc() {
-  //  // var fichierSelectionne = document.getElementById('inputFile').files[0];
-  //  }
-
-  //  handleFiles(file: File) {
-  //     debugger;
-  //     let files = file;
-  //  }
-
-  //  getImageURL(currentTodo: ITodo) {
-  //    debugger;
-  //   return ('localhost:4500' + '/' + currentTodo.picture.uri).replace(/([^:]\/)\/+/g, "$1");
-  // }
-
-  // getBlobURL(currentTodo: ITodo) {
-  //   return ('localhost:4500' + '/' + currentTodo.doc.uri).replace(/([^:]\/)\/+/g, "$1");
-  // }
-
-  // previewImage(currentTodo: ITodo) {
-  //   this.getImageURL(currentTodo);
-  // }
-
+  onUpload() {
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http.post('', fd).subscribe(res => {console.log(res)});
+  }
   previousOfTheList() { }
   firstOfTheList() { }
   lastOfTheList() { }

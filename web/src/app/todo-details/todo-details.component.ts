@@ -130,7 +130,7 @@ export class TodoDetailsComponent implements OnInit {
     currentTodo.type = type;
     await currentTodo.save();
   }
-  
+
   async onPictureSelected(file, currentTodo: ITodo) {
     this.currentTodo.picture.upload(file);
  //   await currentTodo.save();
@@ -158,9 +158,11 @@ export class TodoDetailsComponent implements OnInit {
   }
 
   onUpload() {
+    debugger;
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('', fd).subscribe(res => {console.log(res)});
+    //this.http.post('http://localhost:8081/fileUpload', fd).subscribe(res => {console.log(res)});
+    this.http.post('http://localhost:8081/handleDocument', fd).subscribe(res => {console.log(res)});
   }
   previousOfTheList() { }
   firstOfTheList() { }

@@ -150,17 +150,17 @@
 				"panelColor": "#8DB3E2",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
 						"X": 365,
 						"Y": 1170
-					},
-					"pathVisible": true
+					}
 				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 330,
+			"workspaceLeft": 331,
 			"workspaceTop": 1010,
 			"lastScriptLocation": {
 				"User": {
@@ -262,6 +262,38 @@
 					"type": "Todos",
 					"reversePath": true,
 					"path": "type"
+				}
+			]
+		},
+		{
+			"name": "DocFile",
+			"className": "DocFile",
+			"collectionName": "DocFiles",
+			"matchTable": "File,Document",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "docFile",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "fileName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string",
+					"matchColumn": "docName"
 				}
 			]
 		},
@@ -981,34 +1013,6 @@
 					"path": "Group"
 				}
 			]
-		},
-		{
-			"collectionName": "DocFiles",
-			"className": "DocFile",
-			"attributes": [
-				{
-					"name": "ID",
-					"kind": "storage",
-					"type": "uuid",
-					"primKey": "true",
-					"autosequence": true,
-					"unique": true,
-					"autogenerate": true
-				},
-				{
-					"name": "docFile",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				},
-				{
-					"name": "docName",
-					"scope": "public",
-					"type": "string",
-					"kind": "storage"
-				}
-			],
-			"matchTable": "File, Document"
 		}
 	],
 	"type": []

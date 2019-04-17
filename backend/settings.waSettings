@@ -15,7 +15,7 @@
 	<service name="dataStore" modulePath="services/dataStore" enabled="true" autoStart="true"/>
 	<service name="runner" modulePath="services/runner" enabled="true"/>
 	<service name="upload" modulePath="services/upload" enabled="true" autoStart="true"/>
-	<service name="Print service" modulePath="services/print" enabled="true"/>
+	<service name="Print service" modulePath="services/print" enabled="false"/>
 	<service name="Service Example" modulePath="service-example/index" enabled="false"/>
 	<service name="Backend Test" modulePath="services/test" enabled="true"/>
 	<resources location="/walib/" lifeTime="31536000"/>

@@ -56,7 +56,7 @@
       </mat-form-field>
       <mat-card>
         <mat-card-actions>
-           <input type="file" id="fileInput" (change)="onFileSelected($event)"> 
+           <input type="file" id="fileInput" (change)="onFileSelected($event)">
             <button type="button" (click)="onUpload()">Upload</button>
         </mat-card-actions>
         <mat-card-content>
@@ -68,7 +68,7 @@
         <mat-card-actions>
           <app-file-input *ngIf="editable" name="filepicture"
             [(ngModel)]="currentTodo.picture"
-            (fileChange)="onPictureSelected($event, currentTodo)">
+            (fileChange)="onPictureSelected($event, currentTodo)" ngDefaultControl>
           </app-file-input>
           <button mat-button *ngIf="editable" (click) = "deletePicture(currentTodo)">
             <mat-icon>delete</mat-icon>
@@ -77,7 +77,7 @@
         </mat-card-actions>
         <mat-card-content>
             <a [href]="currentTodo.picture?.uri" target="_blank">
-                <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Photo">
+                <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Pas d'image associée">
                 <!-- <mat-icon>remove_red_eye</mat-icon> -->
             </a>
           <!-- <img class="pictimage" [src]="currentTodo.picture?.uri" alt="Photo" (click)="previewImage(currentTodo)">
@@ -89,7 +89,7 @@
         <mat-card-actions>
           <app-file-input *ngIf="editable" name="filedoc"
               [(ngModel)]="currentTodo.doc"
-              (fileChange)="onDocSelected($event, currentTodo)">
+              (fileChange)="onDocSelected($event, currentTodo)" ngDefaultControl>
           </app-file-input>
           <a [href]="currentTodo.doc?.uri" target="_blank">
               <mat-icon>remove_red_eye</mat-icon>
@@ -100,11 +100,11 @@
           </button>
         </mat-card-actions>
         <mat-card-content>
-          <img class="pictimage" [src]="currentTodo.doc?.uri" alt="Document" >
+          <img class="pictimage" [src]="currentTodo.doc?.uri" alt="Pas de document associé" >
           <iframe [srcdoc]="currentTodo.doc?.uri" height="400" width="300" ></iframe>
         </mat-card-content>
       </mat-card>
-      
+
       <section class="example-section">
         <mat-checkbox class="example-margin" [(ngModel)]="currentTodo.done" [disabled]="!editable">Terminé</mat-checkbox>
         <mat-checkbox class="example-margin" [(ngModel)]="currentTodo.public" [disabled]="!editable">Public</mat-checkbox>

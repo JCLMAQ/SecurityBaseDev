@@ -138,7 +138,7 @@ export class TodoDetailsComponent implements OnInit {
 
  async deletePicture(currentTodo: ITodo) {
    // Add confirmation windows here
-    this.currentTodo.picture = null;
+    this.currentTodo.picture.delete();
     await currentTodo.save();
   }
 
@@ -148,7 +148,7 @@ export class TodoDetailsComponent implements OnInit {
   }
  async deleteDocument(currentTodo: ITodo) {
     // Add confirmation windows here
-    this.currentTodo.doc = null;
+    this.currentTodo.doc.delete();
     await currentTodo.save();
    }
 

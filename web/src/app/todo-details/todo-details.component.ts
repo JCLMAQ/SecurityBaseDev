@@ -7,12 +7,12 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ITodo, IUser, ITodoType } from '../shared/interfaces';
 import { HttpClient}  from '@angular/common/http';
 
+
 // import { FileInputComponent } from '../shared/file-input/file-input.component';
 
 import { TodoService } from '../shared/todo.service';
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
 import { UserService } from '../shared/user.service';
-//import HttpClient from 'wakanda-client/dist/data-access/http/http-client';
 
 @Component({
   selector: 'app-todo-details',
@@ -20,6 +20,8 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./todo-details.component.css']
 })
 export class TodoDetailsComponent implements OnInit {
+
+
   editable: boolean = false;
   currentTodo: ITodo;
   todoCols1: string[] = ['description', 'done', 'public'];
@@ -30,9 +32,6 @@ export class TodoDetailsComponent implements OnInit {
 
   selectedFile:File = null;
 
-  //fileInput: File;
-  files: HTMLInputElement;
-  //files: any = {};
   url: SafeResourceUrl;
 
   constructor(
@@ -150,7 +149,7 @@ export class TodoDetailsComponent implements OnInit {
     // Add confirmation windows here
     this.currentTodo.doc.delete();
     await currentTodo.save();
-   }
+ }
 
    onFileSelected(event) {
      debugger;
@@ -163,8 +162,9 @@ export class TodoDetailsComponent implements OnInit {
     const fd = new FormData();
     fd.append('file', this.selectedFile, this.selectedFile.name);
     //this.http.post('http://localhost:8081/fileUpload', fd).subscribe(res => {console.log(res)});
-    this.http.post('/api/document/handleDocument', fd).subscribe(res => {console.log(res)});
+    this.http.post('http://localhost:8081/api/docupload/handleDocument', fd).subscribe(res => {console.log(res)});
   }
+  
   previousOfTheList() { }
   firstOfTheList() { }
   lastOfTheList() { }

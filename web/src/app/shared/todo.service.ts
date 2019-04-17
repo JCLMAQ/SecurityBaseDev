@@ -2,13 +2,20 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { WakandaService } from "./wakanda.service";
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { ConfirmComponent } from './confirm/confirm.component';
 import { ITodo } from "./interfaces";
+import { config } from '../config';
+
+const { host, port } = config;
 
 @Injectable()
 export class TodoService {
   constructor(
     private wakanda: WakandaService,
+    private http: HttpClient,
     private dialog: MatDialog
   ) {
 
@@ -61,5 +68,13 @@ export class TodoService {
         resolve(isYes);
       });
     });
+  }
+
+  uploadFile(formData) {
+    debugger;
+    return this.http.post(`http://${host}:${port}/api/uploaddocument`, formData, {
+      responseType: 'text'
+    });
+
   }
 }

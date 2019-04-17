@@ -153,6 +153,7 @@ export class TodoDetailsComponent implements OnInit {
    }
 
    onFileSelected(event) {
+     debugger;
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
   }
@@ -162,7 +163,7 @@ export class TodoDetailsComponent implements OnInit {
     const fd = new FormData();
     fd.append('file', this.selectedFile, this.selectedFile.name);
     //this.http.post('http://localhost:8081/fileUpload', fd).subscribe(res => {console.log(res)});
-    this.http.post('http://localhost:8081/handleDocument', fd).subscribe(res => {console.log(res)});
+    this.http.post('http://localhost:8081/api/document/handleDocument', fd).subscribe(res => {console.log(res)});
   }
   previousOfTheList() { }
   firstOfTheList() { }

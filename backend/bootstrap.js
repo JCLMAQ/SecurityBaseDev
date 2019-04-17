@@ -9,4 +9,4 @@ directory.setLoginManager("login/login-manager" , "Admin");
 httpServer.addRequestHandler('^/api/document/$', './handlers/handler.js', 'handleDocument');
 httpServer.addRequestHandler('^/api/document/[a-fA-F0-9]{32}/$', './handlers/handler.js', 'handleDocument');
 
-httpServer.addRequestHandler('(?i)/api/document/$', './handlers/handler.js', 'handleDocument');
+httpServer.addRequestHandler('(?i)^/api/document/$', './handlers/handler.js', 'handleDocument');

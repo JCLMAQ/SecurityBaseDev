@@ -29,6 +29,8 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "@ng-bootstrap/ng-bootstrap": "^4.0.3",
+    "primeng": "^7.1.1",
+    "primeicons": "^1.0.0",
     "ajv": "^6.9.1",
     "angular-in-memory-web-api": "^0.8.0",
     "core-js": "^2.5.3",

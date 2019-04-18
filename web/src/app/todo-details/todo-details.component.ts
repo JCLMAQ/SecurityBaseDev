@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ITodo, IUser, ITodoType } from '../shared/interfaces';
-import { HttpClient}  from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
+import { Observable, Subscription, Subject } from 'rxjs';
 
 
 // import { FileInputComponent } from '../shared/file-input/file-input.component';
@@ -21,7 +22,10 @@ import { UserService } from '../shared/user.service';
 })
 export class TodoDetailsComponent implements OnInit {
 
+  @ViewChild('fileInput')
+  fileInput: ElementRef;
 
+  file: any;
   editable: boolean = false;
   currentTodo: ITodo;
   todoCols1: string[] = ['description', 'done', 'public'];
@@ -30,7 +34,7 @@ export class TodoDetailsComponent implements OnInit {
   types: ITodoType[] = [];
   selectedTypeTodo: ITodoType;
 
-  selectedFile:File = null;
+  selectedFile: File = null;
 
   url: SafeResourceUrl;
 
@@ -152,7 +156,6 @@ export class TodoDetailsComponent implements OnInit {
  }
 
    onFileSelected(event) {
-     debugger;
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
   }
@@ -160,11 +163,13 @@ export class TodoDetailsComponent implements OnInit {
   onUpload() {
     debugger;
     const fd = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
+    //const fileToUpload = this.file.files[0];
+    fd.append( 'file', this.selectedFile, this.selectedFile.name);
+  //  fd.append( fileToUpload.name, fileToUpload);
     //this.http.post('http://localhost:8081/fileUpload', fd).subscribe(res => {console.log(res)});
-    this.http.post('http://localhost:8081/api/docupload/handleDocument', fd).subscribe(res => {console.log(res)});
+    this.http.post('http://127.0.0.1:8081/api/docupload/handleDocument', fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
   }
-  
+
   previousOfTheList() { }
   firstOfTheList() { }
   lastOfTheList() { }

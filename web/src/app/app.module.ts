@@ -40,7 +40,7 @@ import { ChangePwdService } from './changepwd/changepwd.service';
 import { AuthenticationService } from './shared/authentication.service';
 import { GanttComponent } from './gantt/gantt.component';
 import { CarouselService } from './shared/carousel/carousel.service';
-import { PrimeNGModule} from './shared/primeNG.module';
+
 
 @NgModule({
   declarations: [
@@ -69,7 +69,6 @@ import { PrimeNGModule} from './shared/primeNG.module';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    PrimeNGModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     APP_ROUTING
   ],

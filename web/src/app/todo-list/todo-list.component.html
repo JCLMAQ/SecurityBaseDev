@@ -51,7 +51,7 @@
           <ng-container matColumnDef="picture">
             <mat-header-cell *matHeaderCellDef>Picture</mat-header-cell>
             <mat-cell *matCellDef="let one">
-                    <img *ngIf="one.picture?.uri != null" [src]="one.picture?.uri" alt="Photo" >
+                    <img *ngIf="one.picture?.uri" [src]="one.picture?.uri" alt="Photo" >
                 
               <!-- <img [src]="getImageURL()" (click)="previewImage()"> -->
             </mat-cell>

@@ -135,7 +135,7 @@ export class TodoDetailsComponent implements OnInit {
   }
 
   async onPictureSelected(file, currentTodo: ITodo) {
-    this.currentTodo.picture.upload(file);
+    this.currentTodo.picture.upload(file).then (function() {});
  //   await currentTodo.save();
   }
 

@@ -104,11 +104,14 @@
           </button>
         </mat-card-actions>
         <mat-card-content>
-            <a [href]="currentTodo.doc?.uri" target="_blank">
-              <img *ngIf="currentTodo.doc?.uri" class="pictimage" [src]="currentTodo.doc?.uri" alt="Pas de document associé" >
-            </a>
+            <!-- <a [href]="currentTodo.doc?.uri" target="_blank">
+              <img *ngIf="currentTodo.doc?.uri" class="pictimage" [src]="currentTodo.doc?.uri" >
+            </a> -->
           <a *ngIf="!currentTodo.doc?.uri">Pas de document associé</a>
-          <!-- <iframe [srcdoc]="currentTodo.doc?.uri" height="400" width="300" ></iframe> -->
+          <a [href]="currentTodo.doc?.uri" target="docframe">
+              Click to preview
+            <iframe height="400" width="600" name="docframe"> </iframe>
+          </a>
         </mat-card-content>
       </mat-card>
 

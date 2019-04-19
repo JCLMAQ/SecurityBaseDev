@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ITodo, IUser, ITodoType } from '../shared/interfaces';

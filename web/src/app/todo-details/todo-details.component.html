@@ -68,9 +68,10 @@
 <br>
       <mat-card>
         <mat-card-actions>
-          <app-file-input *ngIf="editable" name="filepicture"
+            <app-file-input *ngIf="editable" name="filepicture"
             [(ngModel)]="currentTodo.picture"
-            (fileChange)="onPictureSelected($event, currentTodo)" ngDefaultControl>
+            (fileChange)="onPictureSelected($event, currentTodo)">
+            <!-- (fileChange)="onPictureSelected($event, currentTodo)" ngDefaultControl> -->
           </app-file-input>
           <button mat-button *ngIf="editable" (click) = "deletePicture(currentTodo)">
             <mat-icon>delete</mat-icon>
@@ -92,7 +93,7 @@
         <mat-card-actions>
           <app-file-input *ngIf="editable" name="filedoc"
               [(ngModel)]="currentTodo.doc"
-              (fileChange)="onDocSelected($event, currentTodo)" ngDefaultControl>
+              (fileChange)="onDocSelected($event, currentTodo)">
           </app-file-input>
           <a *ngIf="currentTodo.doc?.uri" [href]="currentTodo.doc?.uri" target="_blank">
               <mat-icon>remove_red_eye</mat-icon>

@@ -167,7 +167,7 @@ export class TodoDetailsComponent implements OnInit {
     fd.append( 'file', this.selectedFile, this.selectedFile.name);
   //  fd.append( fileToUpload.name, fileToUpload);
     //this.http.post('http://localhost:8081/fileUpload', fd).subscribe(res => {console.log(res)});
-    this.http.post('http://127.0.0.1:8081/api/docupload/handleDocument', fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
+    this.http.post('http://127.0.0.1:8081/docupload', fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
   }
 
   previousOfTheList() { }

@@ -4,7 +4,7 @@
  */
 //directory.setSessionManager('login/session-manager');
 
-httpServer.addRequestHandler('(?i)^/api/docupload', './backend/handler.js', 'handleDocument');
+httpServer.addRequestHandler('(?i)^/api/docupload', 'handler.js', 'handleDocument');
 
 
 directory.setLoginManager("login/login-manager" , "Admin");
@@ -17,4 +17,4 @@ directory.setLoginManager("login/login-manager" , "Admin");
 
 //httpServer.addRequestHandler('(?i)^/api/docupload/[a-fA-F0-9]{32}/$', './handler.js', 'handleDocument');
 
-httpServer.addRequestHandler('(?i)^/api/docupload', './backend/handler.js', 'handleDocument');
+//httpServer.addRequestHandler('(?i)^/api/docupload', './backend/handler.js', 'handleDocument');

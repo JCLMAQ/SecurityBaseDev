@@ -13,7 +13,7 @@ export interface IChangepwd {
 @Component({
   selector: 'app-changepwd',
   templateUrl: './changepwd.component.html',
-  styleUrls: ['./changepwd.component.scss']
+  styleUrls: ['./changepwd.component.css']
 })
 export class ChangepwdComponent implements OnInit {
 

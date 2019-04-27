@@ -22,7 +22,7 @@
             ],
             "styles": [
               "src/styles.css",
-             "src/theme.scss"
+              "src/theme.scss"
             ],
             "scripts": []
           },

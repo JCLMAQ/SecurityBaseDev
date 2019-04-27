@@ -8,8 +8,6 @@
 		<cors enabled="true">
 			<domain name="localhost:4500" methods="post;get;put;delete"/>
 			<domain name="127.0.0.1:4500" methods="post;get;put;delete"/>
-			<domain name="127.0.0.1:8080" methods="post;get;put;delete"/>
-			<domain name="127.0.0.1:8081" methods="post;get;put;delete"/>
 		</cors>
 	</http>
 	<service name="webApp" modulePath="services/webApp" enabled="false" autoStart="true"/>

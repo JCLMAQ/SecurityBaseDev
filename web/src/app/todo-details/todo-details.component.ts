@@ -156,18 +156,20 @@ export class TodoDetailsComponent implements OnInit {
  }
 
    onFileSelected(event) {
+     debugger;
     console.log(event);
-    this.selectedFile = <File>event.target.files[0];
+    this.selectedFile = event.target.files[0] as File;
   }
 
   onUpload() {
-    // debugger;
+    debugger;
     const fd = new FormData();
     //const fileToUpload = this.file.files[0];
     fd.append( 'file', this.selectedFile, this.selectedFile.name);
   //  fd.append( fileToUpload.name, fileToUpload);
     //this.http.post('http://localhost:8081/fileUpload', fd).subscribe(res => {console.log(res)});
-    this.http.post('http://127.0.0.1:8081/api/docupload', fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
+    this.http.post(`/api/docupload`, fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
+   // this.http.post(`/api/docupload/${ID}`, fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
   }
 
   previousOfTheList() { }

@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './gantt/services/in-memory-data.service';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -71,7 +71,7 @@ import { CarouselService } from './shared/carousel/carousel.service';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     APP_ROUTING
   ],
   entryComponents: [ConfirmComponent],

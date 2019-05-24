@@ -5,8 +5,8 @@ import { FormControl, FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ITodo, IUser, ITodoType } from '../shared/interfaces';
-import { HttpClient} from '@angular/common/http';
-import { Observable, Subscription, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subscription, Subject, of, throwError } from 'rxjs';
 
 
 // import { FileInputComponent } from '../shared/file-input/file-input.component';
@@ -14,6 +14,7 @@ import { Observable, Subscription, Subject } from 'rxjs';
 import { TodoService } from '../shared/todo.service';
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
 import { UserService } from '../shared/user.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-details',
@@ -135,28 +136,28 @@ export class TodoDetailsComponent implements OnInit {
   }
 
   async onPictureSelected(file, currentTodo: ITodo) {
-    this.currentTodo.picture.upload(file).then (function() {});
- //   await currentTodo.save();
+    this.currentTodo.picture.upload(file).then(function () { });
+    //   await currentTodo.save();
   }
 
- async deletePicture(currentTodo: ITodo) {
-   // Add confirmation windows here
+  async deletePicture(currentTodo: ITodo) {
+    // Add confirmation windows here
     this.currentTodo.picture.delete();
     await currentTodo.save();
   }
 
   async onDocSelected(file, currentTodo: ITodo) {
     this.currentTodo.doc.upload(file);
- //   await currentTodo.save();
+    //   await currentTodo.save();
   }
- async deleteDocument(currentTodo: ITodo) {
+  async deleteDocument(currentTodo: ITodo) {
     // Add confirmation windows here
     this.currentTodo.doc.delete();
     await currentTodo.save();
- }
+  }
 
-   onFileSelected(event) {
-     debugger;
+  onFileSelected(event) {
+    debugger;
     console.log(event);
     this.selectedFile = event.target.files[0] as File;
   }
@@ -165,11 +166,11 @@ export class TodoDetailsComponent implements OnInit {
     debugger;
     const fd = new FormData();
     //const fileToUpload = this.file.files[0];
-    fd.append( 'file', this.selectedFile, this.selectedFile.name);
-  //  fd.append( fileToUpload.name, fileToUpload);
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+    //  fd.append( fileToUpload.name, fileToUpload);
     //this.http.post('http://localhost:8081/fileUpload', fd).subscribe(res => {console.log(res)});
     this.http.post(`/api/docupload`, fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
-   // this.http.post(`/api/docupload/${ID}`, fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
+    // this.http.post(`/api/docupload/${ID}`, fd , { responseType: 'text'}).subscribe(res => {console.log(res)});
   }
 
   previousOfTheList() { }

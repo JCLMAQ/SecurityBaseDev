@@ -92,3 +92,6 @@ Thumbs.db
 *.txt
 *.WakTDef
 *.txt
+
+/documents_storage/*
+

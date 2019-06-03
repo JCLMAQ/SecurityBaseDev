@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ITodo, IUser } from "../shared/interfaces";
@@ -10,7 +12,7 @@ import{ UserService } from '../shared/user.service';
 import { WakandaService } from '../shared/wakanda.service';
 
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-todo-list',

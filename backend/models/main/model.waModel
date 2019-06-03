@@ -160,8 +160,8 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 331,
-			"workspaceTop": 1010,
+			"workspaceLeft": 0,
+			"workspaceTop": 0,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -291,9 +291,9 @@
 				{
 					"name": "fileName",
 					"kind": "storage",
+					"matchColumn": "docName",
 					"scope": "public",
-					"type": "string",
-					"matchColumn": "docName"
+					"type": "string"
 				}
 			]
 		},
@@ -668,7 +668,7 @@
 					"name": "doc",
 					"kind": "storage",
 					"scope": "public",
-					"type": "image"
+					"type": "blob"
 				},
 				{
 					"name": "docName",

@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   todos: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
   todos1: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
 
-  @ViewChild(MatPaginator) usersPaginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) usersPaginator: MatPaginator;
 
   constructor(
     private usersService: UserService,

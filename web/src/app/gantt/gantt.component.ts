@@ -15,7 +15,7 @@ import 'dhtmlx-gantt';
 })
 export class GanttComponent implements OnInit {
 
-  @ViewChild('gantt_here') ganttContainer: ElementRef;
+  @ViewChild('gantt_here', { static: true }) ganttContainer: ElementRef;
 
 	constructor(private taskService: TaskService, private linkService: LinkService) { }
 

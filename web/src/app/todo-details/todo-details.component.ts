@@ -23,7 +23,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class TodoDetailsComponent implements OnInit {
 
-  @ViewChild('fileInput')
+  @ViewChild('fileInput', { static: false })
   fileInput: ElementRef;
 
   file: any;

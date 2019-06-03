@@ -95,7 +95,7 @@
               [(ngModel)]="currentTodo.doc"
               (fileChange)="onDocSelected($event, currentTodo)">
           </app-file-input>
-          <a *ngIf="currentTodo.doc?.uri" [href]="currentTodo.doc?.uri" target="_blank">
+          <a *ngIf="currentTodo.doc?.uri" [href]="getPreviewSrc(currentTodo)" target="_blank">
               <mat-icon>remove_red_eye</mat-icon>
           </a>
           <button mat-button *ngIf="editable" (click) = "deleteDocument(currentTodo)">
@@ -108,9 +108,9 @@
               <img *ngIf="currentTodo.doc?.uri" class="pictimage" [src]="currentTodo.doc?.uri" >
             </a> -->
           <a *ngIf="!currentTodo.doc?.uri">Pas de document associé</a>
-          <a [href]="currentTodo.doc?.uri" target="docframe">
+          <a [href]="getPreviewSrc(currentTodo)" *ngIf="currentTodo.doc?.uri" target="docframe">
               Click to preview
-            <iframe height="400" width="600" name="docframe"> </iframe>
+            <iframe height="400" width="600" name="docframe" [src]="getPreviewSrc(currentTodo)"> </iframe>
           </a>
         </mat-card-content>
       </mat-card>

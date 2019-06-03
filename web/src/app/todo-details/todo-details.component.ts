@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { SafeResourceUrl, DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { FormControl, FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
@@ -45,7 +45,7 @@ export class TodoDetailsComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private http: HttpClient,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
   ) { }
 
   async ngOnInit() {
@@ -177,6 +177,10 @@ export class TodoDetailsComponent implements OnInit {
   firstOfTheList() { }
   lastOfTheList() { }
   nextOfTheList() { }
+
+  getPreviewSrc(todo:ITodo): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(`/api/docpreview?id=${todo.ID}`);
+  }
 
 }
 

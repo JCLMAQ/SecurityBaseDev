@@ -8,6 +8,16 @@ export interface IChoice {
   fetch(options?: any): Promise<IChoice>;
   delete(): Promise<void>;
 }
+export interface IDocFile {
+  _key?: string;
+  ID: string;
+  docFile: string;
+  fileName: string;
+  save(): Promise<IDocFile>;
+  recompute(): Promise<IDocFile>;
+  fetch(options?: any): Promise<IDocFile>;
+  delete(): Promise<void>;
+}
 export interface IGanttLink {
   _key?: number;
   ID: number;

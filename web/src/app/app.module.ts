@@ -42,7 +42,7 @@ import { ChangePwdService } from './changepwd/changepwd.service';
 import { AuthenticationService } from './shared/authentication.service';
 import { GanttComponent } from './gantt/gantt.component';
 import { CarouselService } from './shared/carousel/carousel.service';
-
+import { ImageDialogComponent } from './shared/image-dialog/image-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,8 @@ import { CarouselService } from './shared/carousel/carousel.service';
     SignupComponent,
     CarouselComponent,
     GanttComponent,
-    FileInputComponent
+    FileInputComponent,
+    ImageDialogComponent
 
   ],
   imports: [

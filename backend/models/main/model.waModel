@@ -161,7 +161,7 @@
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 0,
+			"workspaceTop": 377,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -676,6 +676,14 @@
 					"matchColumn": "document",
 					"scope": "public",
 					"type": "string"
+				},
+				{
+					"name": "texto",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage",
+					"multiLine": true,
+					"matchColumn": "texte"
 				}
 			],
 			"events": [

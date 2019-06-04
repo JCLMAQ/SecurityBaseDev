@@ -184,6 +184,7 @@ export class TodoDetailsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustUrl(`/api/docpreview?id=${todo.ID}`);
   }
 
+  handleJoditEvent(event){}
 }
 
 

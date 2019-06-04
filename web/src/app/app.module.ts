@@ -44,6 +44,9 @@ import { GanttComponent } from './gantt/gantt.component';
 import { CarouselService } from './shared/carousel/carousel.service';
 import { ImageDialogComponent } from './shared/image-dialog/image-dialog.component';
 
+// text editor
+import { JoditAngularModule } from 'jodit-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +75,7 @@ import { ImageDialogComponent } from './shared/image-dialog/image-dialog.compone
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    JoditAngularModule,
     // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     APP_ROUTING
   ],

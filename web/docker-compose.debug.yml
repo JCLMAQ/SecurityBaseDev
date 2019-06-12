@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  securitybasedev:
+    image: securitybasedev
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 4500:4500
+      - 9229:9229
+    ## set your startup file here
+    command: node --inspect index.js

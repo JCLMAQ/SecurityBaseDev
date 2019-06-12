@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  develop: #name of the service
+    container_name: securitybasedev # name of the container
+    # build: ./angulardockerproject # Location of our Dockerfile - si le docker-compose is outside 
+    build: . # If the docker-compose is inside the folder 
+    ports: #port mapping
+      - '4500:4500'
+      # - '9229:9229'
+     # - '49153:49153' # Port mapping
+    volumes: # Volume binding
+    - '/app/node_modules'
+    - '.:/app'
+   # command: npm start
+   # command: > bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"

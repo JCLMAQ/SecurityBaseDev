@@ -53,8 +53,8 @@
 					"isOpen": "true",
 					"pathVisible": false,
 					"position": {
-						"X": 43,
-						"Y": 723
+						"X": 50,
+						"Y": 774
 					}
 				}
 			},
@@ -64,8 +64,8 @@
 					"isOpen": "true",
 					"pathVisible": false,
 					"position": {
-						"X": 52,
-						"Y": 508
+						"X": 78,
+						"Y": 572
 					}
 				}
 			},
@@ -161,7 +161,7 @@
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 377,
+			"workspaceTop": 93,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -679,11 +679,11 @@
 				},
 				{
 					"name": "texto",
+					"kind": "storage",
+					"matchColumn": "texte",
 					"scope": "public",
 					"type": "string",
-					"kind": "storage",
-					"multiLine": true,
-					"matchColumn": "texte"
+					"multiLine": true
 				}
 			],
 			"events": [
@@ -1022,6 +1022,5 @@
 				}
 			]
 		}
-	],
-	"type": []
+	]
 }

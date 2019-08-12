@@ -1,20 +1,20 @@
 {
   "/rest/*": {
-    "target": "http://127.0.0.1:8081",
+    "target": "http://127.0.0.1:8085",
     "secure": false,
     "ws": true,
     "headers": {
-      "host": "127.0.0.1:8081",
-      "origin": "http://127.0.0.1:8081"
+      "host": "127.0.0.1:8085",
+      "origin": "http://127.0.0.1:8085"
     }
   },
   "/api/*": {
-    "target": "http://127.0.0.1:8081",
+    "target": "http://127.0.0.1:8085",
     "secure": false,
     "ws": true,
     "headers": {
-      "host": "127.0.0.1:8081",
-      "origin": "http://127.0.0.1:8081"
+      "host": "127.0.0.1:8085",
+      "origin": "http://127.0.0.1:8085"
     }
   }
 }

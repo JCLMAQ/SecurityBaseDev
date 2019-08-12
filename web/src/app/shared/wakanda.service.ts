@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WakandaClient } from 'wakanda-client/browser/no-promise';
+import { WakandaClient } from 'wakanda-client';
 
 const _client = new WakandaClient({});
 

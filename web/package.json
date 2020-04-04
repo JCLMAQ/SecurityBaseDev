@@ -28,7 +28,7 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "@ng-bootstrap/ng-bootstrap": "^5.1.0",
-    "acorn": "^6.2.1",
+    "acorn": "^6.4.1",
     "ajv": "^6.10.2",
     "angular-in-memory-web-api": "^0.8.0",
     "core-js": "^3.1.4",
